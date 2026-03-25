@@ -17,5 +17,7 @@ namespace SpeakCore.Domain.Entities
         public int ProfessorId { get; set; }
         public Professor Professor { get; set; }
 
+        public ICollection<AlunoTurma> AlunoTurmas { get; set; }
+
     }
 }

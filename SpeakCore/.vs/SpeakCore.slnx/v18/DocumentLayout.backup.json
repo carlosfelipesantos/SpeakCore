@@ -1,7 +1,32 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Carlos Felipe\\Documents\\GitHub\\SpeakCore\\SpeakCore\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3B8BB8E9-A1A6-2D27-97E1-4E0DF158224D}|SpeakCore\\SpeakCore.csproj|c:\\users\\carlos felipe\\documents\\github\\speakcore\\speakcore\\speakcore\\domain\\entities\\turma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B8BB8E9-A1A6-2D27-97E1-4E0DF158224D}|SpeakCore\\SpeakCore.csproj|solutionrelative:speakcore\\domain\\entities\\turma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B8BB8E9-A1A6-2D27-97E1-4E0DF158224D}|SpeakCore\\SpeakCore.csproj|c:\\users\\carlos felipe\\documents\\github\\speakcore\\speakcore\\speakcore\\domain\\entities\\alunoturma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B8BB8E9-A1A6-2D27-97E1-4E0DF158224D}|SpeakCore\\SpeakCore.csproj|solutionrelative:speakcore\\domain\\entities\\alunoturma.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B8BB8E9-A1A6-2D27-97E1-4E0DF158224D}|SpeakCore\\SpeakCore.csproj|c:\\users\\carlos felipe\\documents\\github\\speakcore\\speakcore\\speakcore\\domain\\entities\\aluno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B8BB8E9-A1A6-2D27-97E1-4E0DF158224D}|SpeakCore\\SpeakCore.csproj|solutionrelative:speakcore\\domain\\entities\\aluno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B8BB8E9-A1A6-2D27-97E1-4E0DF158224D}|SpeakCore\\SpeakCore.csproj|c:\\users\\carlos felipe\\documents\\github\\speakcore\\speakcore\\speakcore\\domain\\entities\\professor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B8BB8E9-A1A6-2D27-97E1-4E0DF158224D}|SpeakCore\\SpeakCore.csproj|solutionrelative:speakcore\\domain\\entities\\professor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B8BB8E9-A1A6-2D27-97E1-4E0DF158224D}|SpeakCore\\SpeakCore.csproj|c:\\users\\carlos felipe\\documents\\github\\speakcore\\speakcore\\speakcore\\domain\\entities\\disciplina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B8BB8E9-A1A6-2D27-97E1-4E0DF158224D}|SpeakCore\\SpeakCore.csproj|solutionrelative:speakcore\\domain\\entities\\disciplina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B8BB8E9-A1A6-2D27-97E1-4E0DF158224D}|SpeakCore\\SpeakCore.csproj|c:\\users\\carlos felipe\\documents\\github\\speakcore\\speakcore\\speakcore\\domain\\enums\\nivel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B8BB8E9-A1A6-2D27-97E1-4E0DF158224D}|SpeakCore\\SpeakCore.csproj|solutionrelative:speakcore\\domain\\enums\\nivel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 284,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,6 +51,84 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Professor.cs",
+              "DocumentMoniker": "C:\\Users\\Carlos Felipe\\Documents\\GitHub\\SpeakCore\\SpeakCore\\SpeakCore\\Domain\\Entities\\Professor.cs",
+              "RelativeDocumentMoniker": "SpeakCore\\Domain\\Entities\\Professor.cs",
+              "ToolTip": "C:\\Users\\Carlos Felipe\\Documents\\GitHub\\SpeakCore\\SpeakCore\\SpeakCore\\Domain\\Entities\\Professor.cs",
+              "RelativeToolTip": "SpeakCore\\Domain\\Entities\\Professor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-25T18:06:11.475Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Turma.cs",
+              "DocumentMoniker": "C:\\Users\\Carlos Felipe\\Documents\\GitHub\\SpeakCore\\SpeakCore\\SpeakCore\\Domain\\Entities\\Turma.cs",
+              "RelativeDocumentMoniker": "SpeakCore\\Domain\\Entities\\Turma.cs",
+              "ToolTip": "C:\\Users\\Carlos Felipe\\Documents\\GitHub\\SpeakCore\\SpeakCore\\SpeakCore\\Domain\\Entities\\Turma.cs",
+              "RelativeToolTip": "SpeakCore\\Domain\\Entities\\Turma.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-25T18:01:59.979Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Aluno.cs",
+              "DocumentMoniker": "C:\\Users\\Carlos Felipe\\Documents\\GitHub\\SpeakCore\\SpeakCore\\SpeakCore\\Domain\\Entities\\Aluno.cs",
+              "RelativeDocumentMoniker": "SpeakCore\\Domain\\Entities\\Aluno.cs",
+              "ToolTip": "C:\\Users\\Carlos Felipe\\Documents\\GitHub\\SpeakCore\\SpeakCore\\SpeakCore\\Domain\\Entities\\Aluno.cs",
+              "RelativeToolTip": "SpeakCore\\Domain\\Entities\\Aluno.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-25T18:00:28.646Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AlunoTurma.cs",
+              "DocumentMoniker": "C:\\Users\\Carlos Felipe\\Documents\\GitHub\\SpeakCore\\SpeakCore\\SpeakCore\\Domain\\Entities\\AlunoTurma.cs",
+              "RelativeDocumentMoniker": "SpeakCore\\Domain\\Entities\\AlunoTurma.cs",
+              "ToolTip": "C:\\Users\\Carlos Felipe\\Documents\\GitHub\\SpeakCore\\SpeakCore\\SpeakCore\\Domain\\Entities\\AlunoTurma.cs",
+              "RelativeToolTip": "SpeakCore\\Domain\\Entities\\AlunoTurma.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-25T18:03:32.785Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Disciplina.cs",
+              "DocumentMoniker": "C:\\Users\\Carlos Felipe\\Documents\\GitHub\\SpeakCore\\SpeakCore\\SpeakCore\\Domain\\Entities\\Disciplina.cs",
+              "RelativeDocumentMoniker": "SpeakCore\\Domain\\Entities\\Disciplina.cs",
+              "ToolTip": "C:\\Users\\Carlos Felipe\\Documents\\GitHub\\SpeakCore\\SpeakCore\\SpeakCore\\Domain\\Entities\\Disciplina.cs",
+              "RelativeToolTip": "SpeakCore\\Domain\\Entities\\Disciplina.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-25T18:05:10.108Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Nivel.cs",
+              "DocumentMoniker": "C:\\Users\\Carlos Felipe\\Documents\\GitHub\\SpeakCore\\SpeakCore\\SpeakCore\\Domain\\Enums\\Nivel.cs",
+              "RelativeDocumentMoniker": "SpeakCore\\Domain\\Enums\\Nivel.cs",
+              "ToolTip": "C:\\Users\\Carlos Felipe\\Documents\\GitHub\\SpeakCore\\SpeakCore\\SpeakCore\\Domain\\Enums\\Nivel.cs",
+              "RelativeToolTip": "SpeakCore\\Domain\\Enums\\Nivel.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAADwvwcAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-25T18:08:43.018Z",
+              "EditorCaption": ""
             }
           ]
         }

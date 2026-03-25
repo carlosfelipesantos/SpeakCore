@@ -16,7 +16,6 @@
     <Folder Include="Application\Mapping\" />
     <Folder Include="Application\Services\Interfaces\" />
     <Folder Include="Application\Services\Implementations\" />
-    <Folder Include="Domain\Entities\" />
     <Folder Include="Domain\Interfaces\" />
     <Folder Include="Infrastructure\Data\" />
     <Folder Include="Infrastructure\Migrations\" />

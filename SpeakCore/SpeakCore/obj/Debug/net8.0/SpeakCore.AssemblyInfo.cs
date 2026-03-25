@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SpeakCore")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8bdf5bfd044db5d77a419b05afc15c7e3222daa3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5f3f9d65d10fc04891eac28ada14efc5f67a45e0")]
 [assembly: System.Reflection.AssemblyProductAttribute("SpeakCore")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SpeakCore")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

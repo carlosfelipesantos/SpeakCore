@@ -1,0 +1,22 @@
+# Build
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Logs
+*.log
+
+# Config sensível
+appsettings.Development.json
+appsettings.Local.json
+
+# Banco de dados
+*.mdf
+*.ldf
+
+# Outros
+node_modules/

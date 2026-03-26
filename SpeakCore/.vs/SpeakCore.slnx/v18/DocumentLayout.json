@@ -3,24 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Carlos Felipe\\Documents\\GitHub\\SpeakCore\\SpeakCore\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3B8BB8E9-A1A6-2D27-97E1-4E0DF158224D}|SpeakCore\\SpeakCore.csproj|c:\\users\\carlos felipe\\documents\\github\\speakcore\\speakcore\\speakcore\\application\\dtos\\turma\\turmaresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B8BB8E9-A1A6-2D27-97E1-4E0DF158224D}|SpeakCore\\SpeakCore.csproj|solutionrelative:speakcore\\application\\dtos\\turma\\turmaresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B8BB8E9-A1A6-2D27-97E1-4E0DF158224D}|SpeakCore\\SpeakCore.csproj|c:\\users\\carlos felipe\\documents\\github\\speakcore\\speakcore\\speakcore\\application\\dtos\\aluno\\alunoresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B8BB8E9-A1A6-2D27-97E1-4E0DF158224D}|SpeakCore\\SpeakCore.csproj|solutionrelative:speakcore\\application\\dtos\\aluno\\alunoresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B8BB8E9-A1A6-2D27-97E1-4E0DF158224D}|SpeakCore\\SpeakCore.csproj|c:\\users\\carlos felipe\\documents\\github\\speakcore\\speakcore\\speakcore\\application\\dtos\\turma\\turmaupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B8BB8E9-A1A6-2D27-97E1-4E0DF158224D}|SpeakCore\\SpeakCore.csproj|solutionrelative:speakcore\\application\\dtos\\turma\\turmaupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B8BB8E9-A1A6-2D27-97E1-4E0DF158224D}|SpeakCore\\SpeakCore.csproj|c:\\users\\carlos felipe\\documents\\github\\speakcore\\speakcore\\speakcore\\application\\dtos\\aluno\\alunocreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B8BB8E9-A1A6-2D27-97E1-4E0DF158224D}|SpeakCore\\SpeakCore.csproj|solutionrelative:speakcore\\application\\dtos\\aluno\\alunocreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3B8BB8E9-A1A6-2D27-97E1-4E0DF158224D}|SpeakCore\\SpeakCore.csproj|c:\\users\\carlos felipe\\documents\\github\\speakcore\\speakcore\\speakcore\\application\\dtos\\professor\\professorcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B8BB8E9-A1A6-2D27-97E1-4E0DF158224D}|SpeakCore\\SpeakCore.csproj|solutionrelative:speakcore\\application\\dtos\\professor\\professorcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3B8BB8E9-A1A6-2D27-97E1-4E0DF158224D}|SpeakCore\\SpeakCore.csproj|c:\\users\\carlos felipe\\documents\\github\\speakcore\\speakcore\\speakcore\\application\\dtos\\turma\\turmacreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3B8BB8E9-A1A6-2D27-97E1-4E0DF158224D}|SpeakCore\\SpeakCore.csproj|solutionrelative:speakcore\\application\\dtos\\turma\\turmacreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B8BB8E9-A1A6-2D27-97E1-4E0DF158224D}|SpeakCore\\SpeakCore.csproj|c:\\users\\carlos felipe\\documents\\github\\speakcore\\speakcore\\speakcore\\application\\dtos\\disciplina\\disciplinacreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B8BB8E9-A1A6-2D27-97E1-4E0DF158224D}|SpeakCore\\SpeakCore.csproj|solutionrelative:speakcore\\application\\dtos\\disciplina\\disciplinacreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B8BB8E9-A1A6-2D27-97E1-4E0DF158224D}|SpeakCore\\SpeakCore.csproj|c:\\users\\carlos felipe\\documents\\github\\speakcore\\speakcore\\speakcore\\application\\dtos\\aluno\\alunocreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B8BB8E9-A1A6-2D27-97E1-4E0DF158224D}|SpeakCore\\SpeakCore.csproj|solutionrelative:speakcore\\application\\dtos\\aluno\\alunocreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 284,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -51,14 +47,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AlunoResponseDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Carlos Felipe\\Documents\\GitHub\\SpeakCore\\SpeakCore\\SpeakCore\\Application\\DTOs\\Aluno\\AlunoResponseDTO.cs",
-              "RelativeDocumentMoniker": "SpeakCore\\Application\\DTOs\\Aluno\\AlunoResponseDTO.cs",
-              "ToolTip": "C:\\Users\\Carlos Felipe\\Documents\\GitHub\\SpeakCore\\SpeakCore\\SpeakCore\\Application\\DTOs\\Aluno\\AlunoResponseDTO.cs",
-              "RelativeToolTip": "SpeakCore\\Application\\DTOs\\Aluno\\AlunoResponseDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "TurmaCreateDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Carlos Felipe\\Documents\\GitHub\\SpeakCore\\SpeakCore\\SpeakCore\\Application\\DTOs\\Turma\\TurmaCreateDTO.cs",
+              "RelativeDocumentMoniker": "SpeakCore\\Application\\DTOs\\Turma\\TurmaCreateDTO.cs",
+              "ToolTip": "C:\\Users\\Carlos Felipe\\Documents\\GitHub\\SpeakCore\\SpeakCore\\SpeakCore\\Application\\DTOs\\Turma\\TurmaCreateDTO.cs",
+              "RelativeToolTip": "SpeakCore\\Application\\DTOs\\Turma\\TurmaCreateDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-26T16:04:41.001Z",
+              "WhenOpened": "2026-03-26T16:30:16.242Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProfessorCreateDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Carlos Felipe\\Documents\\GitHub\\SpeakCore\\SpeakCore\\SpeakCore\\Application\\DTOs\\Professor\\ProfessorCreateDTO.cs",
+              "RelativeDocumentMoniker": "SpeakCore\\Application\\DTOs\\Professor\\ProfessorCreateDTO.cs",
+              "ToolTip": "C:\\Users\\Carlos Felipe\\Documents\\GitHub\\SpeakCore\\SpeakCore\\SpeakCore\\Application\\DTOs\\Professor\\ProfessorCreateDTO.cs",
+              "RelativeToolTip": "SpeakCore\\Application\\DTOs\\Professor\\ProfessorCreateDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T16:29:41.687Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DisciplinaCreateDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Carlos Felipe\\Documents\\GitHub\\SpeakCore\\SpeakCore\\SpeakCore\\Application\\DTOs\\Disciplina\\DisciplinaCreateDTO.cs",
+              "RelativeDocumentMoniker": "SpeakCore\\Application\\DTOs\\Disciplina\\DisciplinaCreateDTO.cs",
+              "ToolTip": "C:\\Users\\Carlos Felipe\\Documents\\GitHub\\SpeakCore\\SpeakCore\\SpeakCore\\Application\\DTOs\\Disciplina\\DisciplinaCreateDTO.cs",
+              "RelativeToolTip": "SpeakCore\\Application\\DTOs\\Disciplina\\DisciplinaCreateDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T16:28:53.438Z",
               "EditorCaption": ""
             },
             {
@@ -69,48 +91,9 @@
               "RelativeDocumentMoniker": "SpeakCore\\Application\\DTOs\\Aluno\\AlunoCreateDTO.cs",
               "ToolTip": "C:\\Users\\Carlos Felipe\\Documents\\GitHub\\SpeakCore\\SpeakCore\\SpeakCore\\Application\\DTOs\\Aluno\\AlunoCreateDTO.cs",
               "RelativeToolTip": "SpeakCore\\Application\\DTOs\\Aluno\\AlunoCreateDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-26T16:03:59.293Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TurmaUpdateDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Carlos Felipe\\Documents\\GitHub\\SpeakCore\\SpeakCore\\SpeakCore\\Application\\DTOs\\Turma\\TurmaUpdateDTO.cs",
-              "RelativeDocumentMoniker": "SpeakCore\\Application\\DTOs\\Turma\\TurmaUpdateDTO.cs",
-              "ToolTip": "C:\\Users\\Carlos Felipe\\Documents\\GitHub\\SpeakCore\\SpeakCore\\SpeakCore\\Application\\DTOs\\Turma\\TurmaUpdateDTO.cs",
-              "RelativeToolTip": "SpeakCore\\Application\\DTOs\\Turma\\TurmaUpdateDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-26T16:00:32.74Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TurmaResponseDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Carlos Felipe\\Documents\\GitHub\\SpeakCore\\SpeakCore\\SpeakCore\\Application\\DTOs\\Turma\\TurmaResponseDTO.cs",
-              "RelativeDocumentMoniker": "SpeakCore\\Application\\DTOs\\Turma\\TurmaResponseDTO.cs",
-              "ToolTip": "C:\\Users\\Carlos Felipe\\Documents\\GitHub\\SpeakCore\\SpeakCore\\SpeakCore\\Application\\DTOs\\Turma\\TurmaResponseDTO.cs",
-              "RelativeToolTip": "SpeakCore\\Application\\DTOs\\Turma\\TurmaResponseDTO.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-26T16:00:29.647Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "TurmaCreateDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Carlos Felipe\\Documents\\GitHub\\SpeakCore\\SpeakCore\\SpeakCore\\Application\\DTOs\\Turma\\TurmaCreateDTO.cs",
-              "RelativeDocumentMoniker": "SpeakCore\\Application\\DTOs\\Turma\\TurmaCreateDTO.cs",
-              "ToolTip": "C:\\Users\\Carlos Felipe\\Documents\\GitHub\\SpeakCore\\SpeakCore\\SpeakCore\\Application\\DTOs\\Turma\\TurmaCreateDTO.cs",
-              "RelativeToolTip": "SpeakCore\\Application\\DTOs\\Turma\\TurmaCreateDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-26T16:00:27.802Z",
+              "WhenOpened": "2026-03-26T16:26:58.221Z",
               "EditorCaption": ""
             }
           ]

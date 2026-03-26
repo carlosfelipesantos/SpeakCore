@@ -1,8 +1,11 @@
-﻿namespace SpeakCore.Application.DTOs.Disciplina
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SpeakCore.Application.DTOs.Disciplina
 {
     public class DisciplinaCreateDTO
     {
-        public string Nome { get; set; }
+        [Required]
+        public string Nome { get; set; } = string.Empty;
         public string? Descricao { get; set; }
     
     }

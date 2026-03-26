@@ -1,8 +1,7 @@
-﻿namespace SpeakCore.Domain.Entities
+﻿namespace SpeakCore.Application.DTOs.Disciplina
 {
-    public class Disciplina
+    public class DisciplinaUpdateDTO
     {
-        public int Id{ get; set; }
         public string Nome { get; set; }
         public string? Descricao { get; set; }
         public bool Ativo { get; set; }

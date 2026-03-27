@@ -18,9 +18,6 @@
 
   <ItemGroup>
     <Folder Include="API\Controllers\" />
-    <Folder Include="Domain\Interfaces\" />
-    <Folder Include="Infrastructure\Migrations\" />
-    <Folder Include="Infrastructure\Repositories\" />
   </ItemGroup>
 
 </Project>

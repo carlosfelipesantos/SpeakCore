@@ -1,4 +1,6 @@
-﻿using SpeakCore.Domain.Entities;
+﻿
+using Microsoft.EntityFrameworkCore;
+using SpeakCore.Domain.Entities;
 using SpeakCore.Domain.Interfaces;
 using SpeakCore.Infrastructure.Data;
 
@@ -13,34 +15,39 @@ namespace SpeakCore.Infrastructure.Repositories
             _context = context;
         }
 
-        public Task AdicionarAsync(Professor professor)
+        public async Task AdicionarAsync(Professor professor)
         {
-            throw new NotImplementedException();
+           await _context.Professores.AddAsync(professor);
+            await _context.SaveChangesAsync();
         }
 
-        public Task AtualizarAsync(Professor professor)
+        public async Task<Professor?> ObterPorIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Professores.FirstOrDefaultAsync(i => i.Id == id);
+         }
+
+        public async Task<List<Professor>> ObterTodosAsync()
+        {
+            return await _context.Professores.OrderBy(p => p.Nome).ToListAsync();
         }
 
-        public Task<Professor?> ObterPorIdAsync(int id)
+        public async Task AtualizarAsync(Professor professor)
         {
-            throw new NotImplementedException();
+             _context.Professores.Update(professor);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<List<Professor>> ObterTodosAsync()
+        public async Task RemoverAsync(Professor professor)
         {
-            throw new NotImplementedException();
+            _context.Professores.Remove(professor);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<bool> PossuiTurmasAsync(int professorId)
+        public async Task<bool> PossuiTurmasAsync(int professorId)
         {
-            throw new NotImplementedException();
+            return await _context.Turmas.AnyAsync(t => t.ProfessorId == professorId);
         }
 
-        public Task RemoverAsync(Professor professor)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

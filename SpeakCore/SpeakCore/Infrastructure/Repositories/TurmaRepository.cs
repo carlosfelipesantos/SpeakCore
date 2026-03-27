@@ -1,4 +1,5 @@
-﻿using SpeakCore.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using SpeakCore.Domain.Entities;
 using SpeakCore.Domain.Interfaces;
 using SpeakCore.Infrastructure.Data;
 
@@ -13,39 +14,46 @@ namespace SpeakCore.Infrastructure.Repositories
             _context = context;
         }
 
-        public Task AdicionarAsync(Turma turma)
+        public async Task AdicionarAsync(Turma turma)
         {
-            throw new NotImplementedException();
+            await _context.Turmas.AddAsync(turma);
+            await _context.SaveChangesAsync();
         }
 
-        public Task AtualizarAsync(Turma turma)
+        public async Task<Turma?> ObterPorIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Turmas.FirstOrDefaultAsync(i => i.Id == id);
         }
 
-        public Task<Turma?> ObterPorIdAsync(int id)
+        public async Task<int> ObterQuantidadeAlunosAsync(int turmaId)
         {
-            throw new NotImplementedException();
+            return await _context.AlunoTurmas.CountAsync(at => at.TurmaId == turmaId);
         }
 
-        public Task<int> ObterQuantidadeAlunosAsync(int turmaId)
+        public async Task<List<Turma>> ObterTodosAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Turmas.OrderBy(t => t.AnoLetivo).ToListAsync();
         }
 
-        public Task<List<Turma>> ObterTodosAsync()
+        public async Task AtualizarAsync(Turma turma)
         {
-            throw new NotImplementedException();
+            _context.Turmas.Update(turma);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<bool> PossuiAlunosAsync(int turmaId)
+        public async Task RemoverAsync(Turma turma)
         {
-            throw new NotImplementedException();
+            _context.Turmas.Remove(turma);
+            await _context.SaveChangesAsync();
         }
 
-        public Task RemoverAsync(Turma turma)
+       
+
+        public async Task<bool> PossuiAlunosAsync(int turmaId)
         {
-            throw new NotImplementedException();
+            return await _context.AlunoTurmas.AnyAsync(a => a.TurmaId == turmaId);
         }
+
+       
     }
 }

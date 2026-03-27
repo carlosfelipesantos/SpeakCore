@@ -1,4 +1,5 @@
-﻿using SpeakCore.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using SpeakCore.Domain.Entities;
 using SpeakCore.Domain.Interfaces;
 using SpeakCore.Infrastructure.Data;
 
@@ -13,44 +14,51 @@ namespace SpeakCore.Infrastructure.Repositories
             _context = context;
         }
 
-        public Task AdicionarAsync(Aluno aluno)
+        public async Task AdicionarAsync(Aluno aluno)
         {
-            throw new NotImplementedException();
+            await _context.Alunos.AddAsync(aluno);
+            await _context.SaveChangesAsync();
         }
 
-        public Task AtualizarAsync(Aluno aluno)
+        public async Task<Aluno?> ObterPorIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Alunos.FirstOrDefaultAsync(i => i.Id == id);
         }
 
-        public Task<bool> CpfExisteAsync(string cpf)
+        public async Task<List<Aluno>> ObterTodosAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Alunos.OrderBy(t => t.Nome).ToListAsync();
         }
 
-        public Task<bool> EmailExisteAsync(string email)
+        public async Task AtualizarAsync(Aluno aluno)
         {
-            throw new NotImplementedException();
+            _context.Alunos.Update(aluno);
+           await _context.SaveChangesAsync();
         }
 
-        public Task<Aluno?> ObterPorIdAsync(int id)
+        public async Task RemoverAsync(Aluno aluno)
         {
-            throw new NotImplementedException();
+            _context.Alunos.Remove(aluno);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<List<Aluno>> ObterTodosAsync()
+        public async Task<bool> CpfExisteAsync(string cpf)
         {
-            throw new NotImplementedException();
+            return await _context.Alunos.AnyAsync(a => a.CPF == cpf);
         }
 
-        public Task<bool> PossuiTurmasAsync(int alunoId)
+        public async Task<bool> EmailExisteAsync(string email)
         {
-            throw new NotImplementedException();
+            return await _context.Alunos.AnyAsync(e => e.Email == email);
         }
 
-        public Task RemoverAsync(Aluno aluno)
+       
+
+        public async Task<bool> PossuiTurmasAsync(int alunoId)
         {
-            throw new NotImplementedException();
+            return await _context.AlunoTurmas.AnyAsync(p => p.AlunoId == alunoId);
         }
+
+      
     }
 }

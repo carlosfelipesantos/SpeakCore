@@ -48,6 +48,11 @@ namespace SpeakCore.Infrastructure.Repositories
             return await _context.Turmas.AnyAsync(t => t.ProfessorId == professorId);
         }
 
-       
+        public async Task<bool> EmailExisteAsync(string email)
+        {
+            return await _context.Professores.AnyAsync(e => e.Email == email);
+        }
+
+
     }
 }

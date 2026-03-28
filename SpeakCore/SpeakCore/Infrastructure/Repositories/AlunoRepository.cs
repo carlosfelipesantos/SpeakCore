@@ -22,12 +22,12 @@ namespace SpeakCore.Infrastructure.Repositories
 
         public async Task<Aluno?> ObterPorIdAsync(int id)
         {
-            return await _context.Alunos.FirstOrDefaultAsync(i => i.Id == id);
+            return await _context.Alunos.Include(a => a.AlunoTurmas).FirstOrDefaultAsync(i => i.Id == id);
         }
 
         public async Task<List<Aluno>> ObterTodosAsync()
         {
-            return await _context.Alunos.OrderBy(t => t.Nome).ToListAsync();
+            return await _context.Alunos.Include(a => a.AlunoTurmas).OrderBy(t => t.Nome).ToListAsync();
         }
 
         public async Task AtualizarAsync(Aluno aluno)

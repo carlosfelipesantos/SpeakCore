@@ -25,7 +25,7 @@ namespace SpeakCore.Application.Services.Implementations
         {
             var disciplina = await _disciplinaRepository.ObterPorIdAsync(id);
             if (disciplina == null)
-                return null;
+                throw new KeyNotFoundException("Disciplina nao encontrada");
             return MapParaResponse(disciplina);
         }
 

@@ -13,11 +13,8 @@ namespace SpeakCore.Application.DTOs.Turma
         public DateTime? DataFim { get; set; }
 
         public int DisciplinaId { get; set; }
-        public  string DisciplinaNome { get; set; }
         public int ProfessorId { get; set; }
-        public string ProfessorNome { get; set; }
-
-        public List<string> Alunos { get; set; }
+      
 
     }
 }

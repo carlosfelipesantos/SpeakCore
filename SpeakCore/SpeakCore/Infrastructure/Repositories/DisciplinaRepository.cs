@@ -16,7 +16,7 @@ namespace SpeakCore.Infrastructure.Repositories
 
         public async Task AdicionarAsync(Disciplina disciplina)
         {
-            _context.Disciplinas.AddAsync(disciplina);
+           await _context.Disciplinas.AddAsync(disciplina);
            await _context.SaveChangesAsync();
         }
 

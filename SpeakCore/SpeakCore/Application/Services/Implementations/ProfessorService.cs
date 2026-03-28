@@ -16,7 +16,15 @@ namespace SpeakCore.Application.Services.Implementations
 
         public async Task<ProfessorResponseDTO> AdicionarAsync(ProfessorCreateDTO dto)
         {
+            if (!dto.Email.Contains("@"))
+                throw new ArgumentException("Email inválido.");
+
+            if (await _professorRepository.EmailExisteAsync(dto.Email))
+                throw new ArgumentException("Email já cadastrado.");
+
+
             var professor = MapParaEntidade(dto);
+
             await _professorRepository.AdicionarAsync(professor);
             return MapParaResponse(professor);
         }
@@ -40,13 +48,24 @@ namespace SpeakCore.Application.Services.Implementations
         {
             var professor = await _professorRepository.ObterPorIdAsync(id);
 
+       
             if (professor == null)
                 throw new KeyNotFoundException("Professor nao encontrado");
 
+            if (!dto.Email.Contains("@"))
+                throw new ArgumentException("Email inválido.");
+
+
+            if (professor.Email != dto.Email &&
+                await _professorRepository.EmailExisteAsync(dto.Email))
+            {
+                throw new ArgumentException("Email já cadastrado.");
+            }
+
             AtualizarProfessor(professor, dto);
             await _professorRepository.AtualizarAsync(professor);
-            return MapParaResponse(professor);
 
+            return MapParaResponse(professor);
         }
 
         public async Task RemoverAsync(int id)
@@ -55,6 +74,10 @@ namespace SpeakCore.Application.Services.Implementations
 
             if (professor == null)
                 throw new KeyNotFoundException("Professor nao encontrado");
+
+            if (await _professorRepository.PossuiTurmasAsync(id))
+                throw new InvalidOperationException("Professor possui turmas vinculadas.");
+
 
             await _professorRepository.RemoverAsync(professor);
         }
@@ -66,7 +89,7 @@ namespace SpeakCore.Application.Services.Implementations
             Email = dto.Email,
             Especialidade = dto.Especialidade
 
-            
+          
             };
         }
 
@@ -78,7 +101,8 @@ namespace SpeakCore.Application.Services.Implementations
                 Nome = professor.Nome,
                 Email = professor.Email,
                 Especialidade = professor.Especialidade,
-                Ativo = professor.Ativo
+                Ativo = professor.Ativo,
+            
             };
         }
 
@@ -87,6 +111,7 @@ namespace SpeakCore.Application.Services.Implementations
             professor.Nome = dto.Nome;
             professor.Email = dto.Email;
             professor.Especialidade = dto.Especialidade;
+            professor.Ativo = dto.Ativo;
         }
 
       

@@ -55,6 +55,9 @@ namespace SpeakCore.Application.Services.Implementations
             if (turma == null)
                 throw new KeyNotFoundException("Turma nao encontrada");
 
+            if (await _turmaRepository.PossuiAlunosAsync(id))
+                throw new InvalidOperationException("Não é possível excluir a turma, pois possui alunos.");
+
             await _turmaRepository.RemoverAsync(turma);                     
         }
 
@@ -96,6 +99,7 @@ namespace SpeakCore.Application.Services.Implementations
             turma.AnoLetivo = dto.AnoLetivo;
             turma.Nivel = dto.Nivel;
             turma.DataFim = dto.DataFim;
+            turma.ProfessorId = dto.ProfessorId;
 
         }
 

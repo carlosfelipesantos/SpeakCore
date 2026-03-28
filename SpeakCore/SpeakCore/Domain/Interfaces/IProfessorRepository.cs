@@ -13,7 +13,8 @@ namespace SpeakCore.Domain.Interfaces
         Task AtualizarAsync(Professor professor);
         Task RemoverAsync(Professor professor);
 
-  
+        Task<bool> EmailExisteAsync(string email);
+
         Task<bool> PossuiTurmasAsync(int professorId);
 
     }

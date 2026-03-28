@@ -15,25 +15,30 @@ namespace SpeakCore.Application.Services.Implementations
             _alunoRepository = alunoRepository;
             _turmaRepository = turmaRepository;
         }
-
-     
-        // CRUD   
-
         public async Task<AlunoResponseDTO> AdicionarAsync(AlunoCreateDTO dto)
         {
-            // Validações básicas
+            
             if (dto.TurmasIds == null || !dto.TurmasIds.Any())
                 throw new ArgumentException("O aluno deve estar matriculado em pelo menos uma turma.");
 
             if (await _alunoRepository.CpfExisteAsync(dto.CPF))
                 throw new ArgumentException("CPF já cadastrado.");
 
+            if (!dto.Email.Contains("@"))
+                throw new ArgumentException("Email inválido.");
+
             if (await _alunoRepository.EmailExisteAsync(dto.Email))
                 throw new ArgumentException("Email já cadastrado.");
 
-            // Validar capacidade das turmas
+            // Validação  das turmas
             foreach (var turmaId in dto.TurmasIds)
             {
+                // se turma existe
+                var turma = await _turmaRepository.ObterPorIdAsync(turmaId);
+                if (turma == null)
+                    throw new KeyNotFoundException($"Turma {turmaId} nao encontrada.");
+
+                //capacidade
                 var quantidade = await _turmaRepository.ObterQuantidadeAlunosAsync(turmaId);
                 if (quantidade >= 5)
                     throw new InvalidOperationException($"Turma {turmaId} já atingiu o limite de 5 alunos.");
@@ -46,10 +51,13 @@ namespace SpeakCore.Application.Services.Implementations
             return MapParaResponse(aluno);
         }
 
+
+
         public async Task<AlunoResponseDTO?> ObterPorIdAsync(int id)
         {
             var aluno = await _alunoRepository.ObterPorIdAsync(id);
-            if (aluno == null) return null;
+            if (aluno == null) 
+               throw new KeyNotFoundException("Aluno nao encontrado.") ;
             return MapParaResponse(aluno);
         }
 
@@ -63,11 +71,17 @@ namespace SpeakCore.Application.Services.Implementations
         {
             var aluno = await _alunoRepository.ObterPorIdAsync(id);
             if (aluno == null)
-                throw new KeyNotFoundException("Aluno não encontrado.");
+                throw new KeyNotFoundException("Aluno nao encontrado.");
+
+            if (dto.TurmasIds == null || !dto.TurmasIds.Any())
+                throw new ArgumentException("O aluno deve estar matriculado em pelo menos uma turma.");
 
             // Validar CPF Email
             if (aluno.CPF != dto.CPF && await _alunoRepository.CpfExisteAsync(dto.CPF))
                 throw new ArgumentException("CPF já cadastrado para outro aluno.");
+
+            if (!dto.Email.Contains("@"))
+                throw new ArgumentException("Email inválido.");
 
             if (aluno.Email != dto.Email && await _alunoRepository.EmailExisteAsync(dto.Email))
                 throw new ArgumentException("Email já cadastrado para outro aluno.");
@@ -124,17 +138,20 @@ namespace SpeakCore.Application.Services.Implementations
         }
 
  
-        // Atualização de aluno + turmas
+        // Atualizar aluno e turmas
         private async Task AtualizarAluno(Aluno aluno, AlunoUpdateDTO dto)
         {
-            // Atualiza dados 
+           
             aluno.Nome = dto.Nome;
             aluno.Email = dto.Email;
             aluno.CPF = dto.CPF;
 
+            if (aluno.AlunoTurmas == null)
+                aluno.AlunoTurmas = new List<AlunoTurma>();
+
             if (dto.TurmasIds != null && dto.TurmasIds.Any())
             {
-                // Remover turmas antigas que não estão mais na lista do DTO
+                // Remover turmas caso aluno tenha saido 
                 var turmasParaRemover = aluno.AlunoTurmas
                     .Where(at => !dto.TurmasIds.Contains(at.TurmaId))
                     .ToList(); 
@@ -144,15 +161,20 @@ namespace SpeakCore.Application.Services.Implementations
                     aluno.AlunoTurmas.Remove(at);
                 }
 
-                // Adicionar novas turmas que ainda não estão cadastradas
+                // Adicionar novas turmas 
                 foreach (var turmaId in dto.TurmasIds)
                 {
                     if (!aluno.AlunoTurmas.Any(at => at.TurmaId == turmaId))
                     {
+                        //valida existencia da turma
+                        var turma = await _turmaRepository.ObterPorIdAsync(turmaId);
+                        if (turma == null)
+                            throw new KeyNotFoundException("Turma nao encontrada.");
+
                         // Valida capacidade máxima
                         var quantidade = await _turmaRepository.ObterQuantidadeAlunosAsync(turmaId);
                         if (quantidade >= 5)
-                            throw new InvalidOperationException($"Turma {turmaId} já atingiu o limite de 5 alunos.");
+                            throw new InvalidOperationException(" Essa turma já atingiu o limite de 5 alunos.");
 
                         aluno.AlunoTurmas.Add(new AlunoTurma
                         {

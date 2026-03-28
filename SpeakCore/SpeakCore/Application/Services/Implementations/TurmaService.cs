@@ -1,10 +1,63 @@
 ﻿using SpeakCore.Application.DTOs.Turma;
+using SpeakCore.Application.Services.Interfaces;
 using SpeakCore.Domain.Entities;
+using SpeakCore.Domain.Interfaces;
 
 namespace SpeakCore.Application.Services.Implementations
 {
-    public class TurmaService
+    public class TurmaService : ITurmaService
     {
+        private readonly ITurmaRepository _turmaRepository;
+
+        public TurmaService(ITurmaRepository turmaRepository)
+        {
+            _turmaRepository = turmaRepository;
+        }
+
+        public async Task<TurmaResponseDTO> AdicionarAsync(TurmaCreateDTO dto)
+        {
+            var turma = MapParaEntidade(dto);
+            await _turmaRepository.AdicionarAsync(turma);
+            return MapParaResponse(turma);
+        }
+
+        public async Task<TurmaResponseDTO?> ObterPorIdAsync(int id)
+        {
+            var turma = await _turmaRepository.ObterPorIdAsync(id);
+            if (turma == null)
+                throw new KeyNotFoundException("Turma nao encontrada");
+
+            return MapParaResponse(turma);
+        }
+
+        public async Task<List<TurmaResponseDTO>> ObterTodosAsync()
+        {
+            var turmas = await _turmaRepository.ObterTodosAsync();
+            return turmas.Select(t => MapParaResponse(t)).ToList();
+        }
+
+        public async Task<TurmaResponseDTO> AtualizarAsync(int id, TurmaUpdateDTO dto)
+        {
+            var turma = await _turmaRepository.ObterPorIdAsync(id);
+            if (turma == null)
+                throw new KeyNotFoundException("Turma nao encontrada");
+
+            AtualizarTurma(turma, dto);
+
+            await _turmaRepository.AtualizarAsync(turma);
+
+           return MapParaResponse(turma);
+        }
+
+        public async Task RemoverAsync(int id)
+        {
+            var turma = await _turmaRepository.ObterPorIdAsync(id);
+            if (turma == null)
+                throw new KeyNotFoundException("Turma nao encontrada");
+
+            await _turmaRepository.RemoverAsync(turma);                     
+        }
+
         private Turma MapParaEntidade(TurmaCreateDTO dto)
         {
             return new Turma
@@ -45,5 +98,6 @@ namespace SpeakCore.Application.Services.Implementations
             turma.DataFim = dto.DataFim;
 
         }
+
     }
 }

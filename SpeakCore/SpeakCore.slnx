@@ -1,3 +1,6 @@
 <Solution>
-  <Project Path="SpeakCore/SpeakCore.csproj" />
+  <Project Path="SpeakCore.API/SpeakCore.API.csproj" Id="ffa6fec0-b995-4fb7-a55a-6748e92d2e7c" />
+  <Project Path="SpeakCore.Application/SpeakCore.Application.csproj" Id="bc18e01f-fbc2-458d-a9d0-479cd4c59899" />
+  <Project Path="SpeakCore.Domain/SpeakCore.Domain.csproj" Id="783f665b-a6df-4450-bd69-80ba2ed22f09" />
+  <Project Path="SpeakCore.Infrastructure/SpeakCore.Infrastructure.csproj" Id="3eb42eb9-2412-4a3c-8b1e-fc90c266a0e2" />
 </Solution>

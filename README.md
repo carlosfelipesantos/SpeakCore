@@ -20,10 +20,10 @@ Permite controlar alunos, turmas, professores e disciplinas, aplicando regras de
 
 O projeto segue os princípios do **DDD**, com separação clara das responsabilidades:
 SpeakCore/
-├── SpeakCore.API # Camada de apresentação (Controllers, Swagger)
-├── SpeakCore.Application # DTOs e Serviços (lógica de aplicação)
-├── SpeakCore.Domain # Entidades, Enums, Interfaces de Repositório
-└── SpeakCore.Infrastructure # Contexto, Repositórios, Migrations
+  -SpeakCore.API # (Controllers, Swagger)
+  -SpeakCore.Application # DTOs e Serviços (lógica de aplicação)
+  -SpeakCore.Domain # Entidades, Enums, Interfaces de Repositório
+  -SpeakCore.Infrastructure # Contexto, Repositórios, Migrations
 
 text
 
@@ -42,20 +42,22 @@ text
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/SpeakCore.git
+1.git clone https://github.com/seu-usuario/SpeakCore.git
 cd SpeakCore
+
 2. Configure a string de conexão
 Edite o arquivo appsettings.json dentro de SpeakCore.API:
-
 json
 {
   "ConnectionStrings": {
     "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=SpeakCoreDB;Trusted_Connection=True;MultipleActiveResultSets=true"
   }
 }
+
 3. Aplique as migrations para criar o banco de dados
 bash
 dotnet ef database update --project SpeakCore.Infrastructure --startup-project SpeakCore.API
+
 4. Execute a API
 bash
 dotnet run --project SpeakCore.API

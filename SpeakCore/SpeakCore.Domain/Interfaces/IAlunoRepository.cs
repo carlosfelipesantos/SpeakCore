@@ -16,5 +16,6 @@ namespace SpeakCore.Domain.Interfaces
         Task<bool> CpfExisteAsync(string cpf);
 
         Task<bool> PossuiTurmasAsync(int alunoId);
+        Task<bool> PossuiTurmasAtivasAsync(int alunoId);
     }
 }

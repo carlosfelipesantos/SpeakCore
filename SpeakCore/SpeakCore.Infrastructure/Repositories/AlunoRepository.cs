@@ -59,6 +59,10 @@ namespace SpeakCore.Infrastructure.Repositories
             return await _context.AlunoTurmas.AnyAsync(p => p.AlunoId == alunoId);
         }
 
-      
+        public async Task<bool> PossuiTurmasAtivasAsync(int alunoId)
+        {
+            return await _context.AlunoTurmas.AnyAsync(at => at.AlunoId == alunoId && at.Ativo);
+        }
+
     }
 }

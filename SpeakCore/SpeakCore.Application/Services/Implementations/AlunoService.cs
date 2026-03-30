@@ -129,9 +129,9 @@ namespace SpeakCore.Application.Services.Implementations
             if (aluno == null)
                 throw new KeyNotFoundException("Aluno não encontrado.");
 
-            if (await _alunoRepository.PossuiTurmasAsync(id))
-                throw new InvalidOperationException("Não é possível excluir o aluno, pois ele está matriculado em turmas.");
-
+            if (await _alunoRepository.PossuiTurmasAtivasAsync(id))
+                throw new InvalidOperationException("Não é possível excluir o aluno, pois ele possui matrículas ativas.");
+           
             await _alunoRepository.RemoverAsync(aluno);
         }
 
@@ -164,6 +164,7 @@ namespace SpeakCore.Application.Services.Implementations
                 Nome = aluno.Nome,
                 Email = aluno.Email,
                 Ativo = aluno.Ativo,
+                CPF = aluno.CPF,
                 DataCadastro = aluno.DataCadastro,
                 Matriculas = aluno.AlunoTurmas?.Select(at => new MatriculaDTO
                 {

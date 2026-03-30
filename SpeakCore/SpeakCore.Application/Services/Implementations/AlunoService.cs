@@ -2,6 +2,7 @@
 using SpeakCore.Application.Services.Interfaces;
 using SpeakCore.Domain.Entities;
 using SpeakCore.Domain.Interfaces;
+using SpeakCore.Domain.Utils;
 
 namespace SpeakCore.Application.Services.Implementations
 {
@@ -26,6 +27,10 @@ namespace SpeakCore.Application.Services.Implementations
 
             if (dto.TurmasIds.Distinct().Count() != dto.TurmasIds.Count)
                 throw new ArgumentException("Aluno não pode ser matriculado na mesma turma mais de uma vez.");
+
+            if (!CpfValidator.IsValid(dto.CPF))
+                throw new ArgumentException("CPF inválido.");
+
 
             if (await _alunoRepository.EmailExisteAsync(dto.Email))
                 throw new ArgumentException("Email já cadastrado.");
@@ -82,6 +87,12 @@ namespace SpeakCore.Application.Services.Implementations
             if (aluno.CPF != dto.CPF && await _alunoRepository.CpfExisteAsync(dto.CPF))
                 throw new ArgumentException("CPF já cadastrado para outro aluno.");
 
+            if (aluno.CPF != dto.CPF)
+            {
+                if (!CpfValidator.IsValid(dto.CPF))
+                    throw new ArgumentException("CPF inválido.");
+            }
+
             if (!dto.Email.Contains("@"))
                 throw new ArgumentException("Email inválido.");
 
@@ -117,6 +128,8 @@ namespace SpeakCore.Application.Services.Implementations
                 CPF = dto.CPF,
                 Nome = dto.Nome,
                 Email = dto.Email,
+                DataCadastro = DateTime.Now,
+                Ativo = true,
                 DataNascimento = dto.DataNascimento,
                 AlunoTurmas = dto.TurmasIds.Select(turmaId => new AlunoTurma
                 {

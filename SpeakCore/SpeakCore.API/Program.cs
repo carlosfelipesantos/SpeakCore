@@ -1,10 +1,14 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using SpeakCore.Application.Services.Implementations;
 using SpeakCore.Application.Services.Interfaces;
 using SpeakCore.Domain.Interfaces;
 using SpeakCore.Infrastructure.Data;
 using SpeakCore.Infrastructure.Repositories;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using System.Globalization;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,7 +40,10 @@ builder.Services.AddControllers()
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SchemaFilter<DateTimeSchemaFilter>();
+});
 
 var app = builder.Build();
 
@@ -55,11 +62,31 @@ app.MapControllers();
 
 app.Run();
 
-public class DateTimeConverter : System.Text.Json.Serialization.JsonConverter<DateTime>
+public class DateTimeConverter : JsonConverter<DateTime>
 {
+    private const string DateFormat = "dd-MM-yyyy";
+
     public override DateTime Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-        => DateTime.Parse(reader.GetString() ?? "");
+    {
+        string dateString = reader.GetString() ?? throw new JsonException("Data inválida.");
+        return DateTime.ParseExact(dateString, DateFormat, CultureInfo.InvariantCulture);
+    }
 
     public override void Write(Utf8JsonWriter writer, DateTime value, JsonSerializerOptions options)
-        => writer.WriteStringValue(value.ToString("dd-MM-yyyy")); 
+    {
+        writer.WriteStringValue(value.ToString(DateFormat));
+    }
+}
+
+
+public class DateTimeSchemaFilter : ISchemaFilter
+{
+    public void Apply(OpenApiSchema schema, SchemaFilterContext context)
+    {
+        if (context.Type == typeof(DateTime) || context.Type == typeof(DateTime?))
+        {
+            schema.Example = new Microsoft.OpenApi.Any.OpenApiString("30-03-2026");
+            schema.Format = "date"; // opcional, indica que é uma data
+        }
+    }
 }

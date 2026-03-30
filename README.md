@@ -35,8 +35,7 @@ text
 - SQL Server (Express, Developer ou LocalDB)
 - Git
 
----
-```mermaid
+---```mermaid
 classDiagram
     class Aluno {
         +int Id
@@ -54,7 +53,7 @@ classDiagram
         +int Numero
         +int AnoLetivo
         +int CapacidadeMax
-        +Nivel Nivel
+        +string Nivel
         +DateTime DataInicio
         +DateTime? DataFim
         +int DisciplinaId
@@ -86,13 +85,6 @@ classDiagram
         +int TurmaId
         +Aluno Aluno
         +Turma Turma
-    }
-
-    enum Nivel {
-        Basico 
-        Medio 
-        Intermediario 
-        Avancado 
     }
 
     Aluno "1" --> "*" AlunoTurma

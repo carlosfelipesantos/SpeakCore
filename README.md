@@ -153,7 +153,7 @@ Como Testar
 
 Usando Swagger
 Execute a API.
-Acesse https://localhost:7111/swagger. (ou a porta que sua api estiver rodando/swagger).
+Acesse https://localhost:7111/swagger. (ou a porta que sua api estiver rodando  /swagger).
 Expanda cada controller, clique em “Try it out” e preencha os dados.
 Envie a requisição e veja a resposta.
 

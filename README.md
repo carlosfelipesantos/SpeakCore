@@ -16,12 +16,11 @@ Postman – testes de integração
 
 🏛 Arquitetura
 O projeto segue os princípios do DDD, com separação clara das responsabilidades:
-
 SpeakCore/
-├── SpeakCore.API          # Camada de apresentação (Controllers, Swagger)
-├── SpeakCore.Application  # DTOs e Serviços (lógica de aplicação)
-├── SpeakCore.Domain       # Entidades(Aluno, Turma, Professor, Disciplina, AlunoTurma), Enums, Interfaces de Repositório 
-└── SpeakCore.Infrastructure # Contexto, Repositórios, Migrations
+ - SpeakCore.API    # Camada de apresentação (Controllers, Swagger)
+ - SpeakCore.Application  # DTOs e Serviços (lógica de aplicação)
+ - SpeakCore.Domain       # Entidades(Aluno, Turma, Professor, Disciplina, AlunoTurma), Enums, Interfaces de Repositório 
+ - SpeakCore.Infrastructure # Contexto, Repositórios, Migrations
 
 
 ⚙ Pré‑requisitos

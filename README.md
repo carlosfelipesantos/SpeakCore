@@ -112,77 +112,43 @@ As tabelas criadas pelas migrations:
 
 📜 Regras de Negócio
           Aluno:
-            -Deve ser cadastrado com pelo menos uma turma;
-            -CPF deve ser válido (dígitos verificadores) e único;
-            -E-mail deve ter formato válido e ser único;     
+            -Deve ser cadastrado com pelo menos uma turma.
+            -CPF deve ser válido (dígitos verificadores) e único.
+            -E-mail deve ter formato válido e ser único.   
             -Não pode ser excluído se tiver matrícula ativa em qualquer turma.
         
           Turma:
            -Possui capacidade máxima de 5 alunos (considerando apenas matrículas ativas).
           - Não pode ser excluída se tiver alunos ativos matriculados.
 
-Professor
-E-mail deve ser único.
+          Professor
+          -E-mail deve ser único.
+          -Não pode ser excluído se possuir turmas vinculadas.
 
-Não pode ser excluído se possuir turmas vinculadas.
+          Disciplina
+          Nome único (não há restrição de exclusão, mas pode ser adicionada futuramente).
 
-Disciplina
-Nome único (não há restrição de exclusão, mas pode ser adicionada futuramente).
+          Trancamento de Matrícula
+          Uma matrícula pode ser inativada (Ativo = false) via PATCH.
 
-Trancamento de Matrícula
-Uma matrícula pode ser inativada (Ativo = false) via PATCH.
+          Matrículas inativas não contam para o limite de alunos da turma e não bloqueiam a exclusão do aluno ou da turma.
 
-Matrículas inativas não contam para o limite de alunos da turma e não bloqueiam a exclusão do aluno ou da turma.
 
-✨ Funcionalidades Detalhadas
-🧑‍🎓 Alunos
-Cadastro: nome, CPF, e-mail, data de nascimento e lista de IDs das turmas. O sistema valida CPF, formato de e-mail e garante que o aluno esteja vinculado a pelo menos uma turma.
+Como Testar
 
-Atualização completa (PUT): substitui todos os campos e a lista de turmas. Se uma turma for removida da lista, a matrícula correspondente é excluída.
-
-Trancamento de matrícula: permite desativar uma matrícula específica sem removê‑la. O aluno deixa de ser contado para o limite da turma e pode ser excluído se não restarem matrículas ativas.
-
-Exclusão: só é permitida se o aluno não tiver nenhuma matrícula ativa.
-
-🏫 Turmas
-Criação: número, ano letivo, capacidade máxima (fixa 5), nível (Básico, Intermediário, Avançado), datas de início/fim, disciplina e professor.
-
-Atualização (PUT): pode alterar número, ano letivo, nível, data fim e professor. A disciplina permanece inalterada (por escolha do projeto).
-
-Exclusão: bloqueada se houver ao menos um aluno com matrícula ativa.
-
-👨‍🏫 Professores
-Criação: nome, e-mail, especialidade. O sistema verifica unicidade do e-mail.
-
-Atualização: pode alterar nome, e-mail, especialidade e status ativo/inativo.
-
-Exclusão: bloqueada se o professor estiver associado a alguma turma.
-
-📚 Disciplinas
-Criação: nome e descrição. O nome deve ser único.
-
-Atualização: pode alterar nome, descrição e status ativo/inativo.
-
-Exclusão: livre (não há restrição de dependência).
-
-🧪 Como Testar
 Usando Swagger
 Execute a API.
-
 Acesse https://localhost:7111/swagger.
-
 Expanda cada controller, clique em “Try it out” e preencha os dados.
-
 Envie a requisição e veja a resposta.
 
 Usando Postman
 Importe a collection disponível em /postman/SpeakCore.postman_collection.json (se fornecida).
-
 Execute os endpoints na ordem: crie professor, disciplina, turma, aluno, etc.
+
 
 Exemplos de Requisições
 Cadastrar Professor
-
 json
 POST /api/Professor
 {
@@ -191,7 +157,6 @@ POST /api/Professor
   "especialidade": "Inglês"
 }
 Cadastrar Disciplina
-
 json
 POST /api/Disciplina
 {
@@ -199,7 +164,6 @@ POST /api/Disciplina
   "descricao": "Curso para iniciantes"
 }
 Cadastrar Turma
-
 json
 POST /api/Turma
 {
@@ -213,7 +177,6 @@ POST /api/Turma
   "professorId": 1
 }
 Cadastrar Aluno com Turma
-
 json
 POST /api/Aluno
 {
@@ -224,7 +187,6 @@ POST /api/Aluno
   "turmasIds": [1]
 }
 Trancar Matrícula
-
 http
 PATCH /api/Aluno/1/turmas/1/status
 Content-Type: application/json

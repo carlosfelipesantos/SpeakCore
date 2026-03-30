@@ -89,10 +89,10 @@ classDiagram
     }
 
     enum Nivel {
-        Basico = 1
-        Medio = 2
-        Intermediario = 3
-        Avancado = 4
+        Basico 
+        Medio 
+        Intermediario 
+        Avancado 
     }
 
     Aluno "1" --> "*" AlunoTurma

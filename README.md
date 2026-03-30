@@ -36,7 +36,7 @@ text
 - Git
 
 ---
-
+```mermaid
 classDiagram
     class Aluno {
         +int Id
@@ -99,6 +99,7 @@ classDiagram
     Turma "1" --> "*" AlunoTurma
     Turma "*" --> "1" Professor
     Turma "*" --> "1" Disciplina
+```
 
 ## Configuração e Execução
 

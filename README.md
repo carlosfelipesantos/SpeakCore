@@ -17,52 +17,44 @@ Postman – testes de integração
 🏛 Arquitetura
 O projeto segue os princípios do DDD, com separação clara das responsabilidades:
 
-text
 SpeakCore/
 ├── SpeakCore.API          # Camada de apresentação (Controllers, Swagger)
 ├── SpeakCore.Application  # DTOs e Serviços (lógica de aplicação)
-├── SpeakCore.Domain       # Entidades, Enums, Interfaces de Repositório
+├── SpeakCore.Domain       # Entidades(Aluno, Turma, Professor, Disciplina, AlunoTurma), Enums, Interfaces de Repositório 
 └── SpeakCore.Infrastructure # Contexto, Repositórios, Migrations
-Domain: contém as entidades (Aluno, Turma, Professor, Disciplina, AlunoTurma) e as regras de negócio puras.
 
-Application: define os DTOs e os serviços que orquestram as operações, aplicando validações e utilizando os repositórios.
-
-Infrastructure: implementa os repositórios com EF Core, configura o DbContext e contém as migrations.
-
-API: expõe os endpoints REST, trata requisições HTTP e retorna respostas em JSON.
-
-A comunicação entre as camadas é feita por injeção de dependência, configurada no Program.cs.
 
 ⚙ Pré‑requisitos
 .NET 8 SDK
-
 SQL Server (Express, Developer ou LocalDB)
-
 Git
+
 
 🔧 Configuração e Execução
 1. Clone o repositório
 bash
 git clone https://github.com/seu-usuario/SpeakCore.git
 cd SpeakCore
-2. Configure a string de conexão
-Edite o arquivo appsettings.json dentro de SpeakCore.API:
 
+3. Configure a string de conexão
+Edite o arquivo appsettings.json dentro de SpeakCore.API:
 json
 {
   "ConnectionStrings": {
     "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=SpeakCoreDB;Trusted_Connection=True;MultipleActiveResultSets=true"
   }
 }
+
 3. Aplique as migrations para criar o banco de dados
 bash
 dotnet ef database update --project SpeakCore.Infrastructure --startup-project SpeakCore.API
-4. Execute a API
+
+5. Execute a API
 bash
 dotnet run --project SpeakCore.API
 A API estará disponível em https://localhost:7111 (porta pode variar conforme configuração).
 
-5. Acesse a documentação Swagger
+6. Acesse a documentação Swagger
 Navegue até https://localhost:7111/swagger para testar os endpoints interativamente.
 
 🗄 Estrutura do Banco de Dados

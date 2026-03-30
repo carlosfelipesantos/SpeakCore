@@ -161,10 +161,6 @@ Usando Postman
 Importe a collection disponível em /postman/SpeakCore.postman_collection.json (se fornecida).
 Execute os endpoints na ordem: crie professor, disciplina, turma, aluno, etc.
 
-
-
-
-
 ## Ordem Sugerida de Testes
 
 Para validar o funcionamento completo da API, siga a ordem abaixo, respeitando as dependências entre os recursos:

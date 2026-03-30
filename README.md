@@ -1,59 +1,67 @@
-🧠 SpeakCore API
 
-API para gerenciamento de uma escola de idiomas, desenvolvida em .NET 8 com arquitetura DDD (Domain-Driven Design), Entity Framework Core Code First e SQL Server.
+# 🧠 SpeakCore API
+
+API para gerenciamento de uma escola de idiomas, desenvolvida em **.NET 8** com arquitetura **DDD (Domain-Driven Design)**, **Entity Framework Core Code First** e **SQL Server**.  
 Permite controlar alunos, turmas, professores e disciplinas, aplicando regras de negócio como limite de alunos por turma, validação de CPF/e-mail, impedimento de exclusão com dependências e trancamento de matrícula.
 
-🚀 Tecnologias
-.NET 8 – plataforma de desenvolvimento
+---
 
-Entity Framework Core 8 – ORM para acesso a dados
+## 🚀 Tecnologias
 
-SQL Server – banco de dados relacional
+- **.NET 8** – plataforma de desenvolvimento
+- **Entity Framework Core 8** – ORM para acesso a dados
+- **SQL Server** – banco de dados relacional
+- **Swagger / OpenAPI** – documentação interativa
+- **Postman** – testes de integração
 
-Swagger / OpenAPI – documentação interativa
+---
 
-Postman – testes de integração
+## 🏛 Arquitetura
 
-🏛 Arquitetura
-O projeto segue os princípios do DDD, com separação clara das responsabilidades:
+O projeto segue os princípios do **DDD**, com separação clara das responsabilidades:
 SpeakCore/
- - SpeakCore.API    # Camada de apresentação (Controllers, Swagger)
- - SpeakCore.Application  # DTOs e Serviços (lógica de aplicação)
- - SpeakCore.Domain       # Entidades(Aluno, Turma, Professor, Disciplina, AlunoTurma), Enums, Interfaces de Repositório 
- - SpeakCore.Infrastructure # Contexto, Repositórios, Migrations
+├── SpeakCore.API # Camada de apresentação (Controllers, Swagger)
+├── SpeakCore.Application # DTOs e Serviços (lógica de aplicação)
+├── SpeakCore.Domain # Entidades, Enums, Interfaces de Repositório
+└── SpeakCore.Infrastructure # Contexto, Repositórios, Migrations
 
+text
 
-⚙ Pré‑requisitos
-.NET 8 SDK
-SQL Server (Express, Developer ou LocalDB)
-Git
+---
 
+## ⚙️ Pré‑requisitos
 
-🔧 Configuração e Execução
-1. Clone o repositório
-bash
+- [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
+- SQL Server (Express, Developer ou LocalDB)
+- Git
+
+---
+
+## 🔧 Configuração e Execução
+
+### 1. Clone o repositório
+
+```bash
 git clone https://github.com/seu-usuario/SpeakCore.git
 cd SpeakCore
-
-3. Configure a string de conexão
+2. Configure a string de conexão
 Edite o arquivo appsettings.json dentro de SpeakCore.API:
+
 json
 {
   "ConnectionStrings": {
     "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=SpeakCoreDB;Trusted_Connection=True;MultipleActiveResultSets=true"
   }
 }
-
 3. Aplique as migrations para criar o banco de dados
 bash
 dotnet ef database update --project SpeakCore.Infrastructure --startup-project SpeakCore.API
-
-5. Execute a API
+4. Execute a API
 bash
 dotnet run --project SpeakCore.API
 A API estará disponível em https://localhost:7111 (porta pode variar conforme configuração).
 
-6. Acesse a documentação Swagger
+5. Acesse a documentação Swagger
 Navegue até https://localhost:7111/swagger para testar os endpoints interativamente.
 
 🗄 Estrutura do Banco de Dados
@@ -65,13 +73,12 @@ Professores	Dados do professor
 Disciplinas	Disciplinas oferecidas
 Turmas	Turmas (número, ano letivo, nível, capacidade)
 AlunoTurmas	Relacionamento muitos-para-muitos entre aluno e turma, com data da matrícula e status (Ativo – controla trancamento).
-Relacionamentos:
-
+Relacionamentos
 Turma → Professor (muitos-para-um)
 
 Turma → Disciplina (muitos-para-um)
 
-Aluno ⇄ Turma via AlunoTurma (muitos-para-muitos)
+Aluno ⇄ Turma via AlunoTurmas (muitos-para-muitos)
 
 📡 Endpoints da API
 Aluno (/api/Aluno)
@@ -105,7 +112,6 @@ PUT	/api/Disciplina/{id}	Atualiza os dados da disciplina (nome, descrição, ati
 DELETE	/api/Disciplina/{id}	Remove a disciplina (não há restrição).
 📜 Regras de Negócio
 Aluno
-
 Deve ser cadastrado com pelo menos uma turma.
 
 CPF deve ser válido (dígitos verificadores) e único.
@@ -117,23 +123,19 @@ Não pode ser matriculado mais de uma vez na mesma turma (chave composta + valid
 Não pode ser excluído se tiver matrícula ativa em qualquer turma.
 
 Turma
-
 Capacidade máxima de 5 alunos (considerando apenas matrículas ativas).
 
 Não pode ser excluída se tiver alunos ativos matriculados.
 
 Professor
-
 E-mail deve ser único.
 
 Não pode ser excluído se possuir turmas vinculadas.
 
 Disciplina
-
 Nome único (não há restrição de exclusão, mas pode ser adicionada futuramente).
 
-Trancamento de Matrícula (melhoria)
-
+Trancamento de Matrícula
 Uma matrícula pode ser inativada (Ativo = false) via PATCH.
 
 Matrículas inativas não contam para o limite de alunos da turma e não bloqueiam a exclusão do aluno ou da turma.
@@ -229,7 +231,8 @@ POST /api/Aluno
 }
 Trancar Matrícula
 
-text
+http
 PATCH /api/Aluno/1/turmas/1/status
 Content-Type: application/json
+
 false

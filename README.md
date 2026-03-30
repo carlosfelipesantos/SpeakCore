@@ -25,7 +25,6 @@ SpeakCore/
   -SpeakCore.Domain # Entidades, Enums, Interfaces de Repositório
   -SpeakCore.Infrastructure # Contexto, Repositórios, Migrations
 
-text
 
 ---
 

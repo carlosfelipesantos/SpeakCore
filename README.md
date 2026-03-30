@@ -37,6 +37,69 @@ text
 
 ---
 
+classDiagram
+    class Aluno {
+        +int Id
+        +string CPF
+        +string Nome
+        +string Email
+        +bool Ativo
+        +DateTime DataNascimento
+        +DateTime DataCadastro
+        +ICollection~AlunoTurma~ AlunoTurmas
+    }
+
+    class Turma {
+        +int Id
+        +int Numero
+        +int AnoLetivo
+        +int CapacidadeMax
+        +Nivel Nivel
+        +DateTime DataInicio
+        +DateTime? DataFim
+        +int DisciplinaId
+        +int ProfessorId
+        +Disciplina Disciplina
+        +Professor Professor
+        +ICollection~AlunoTurma~ AlunoTurmas
+    }
+
+    class Professor {
+        +int Id
+        +string Nome
+        +string Email
+        +string Especialidade
+        +bool Ativo
+    }
+
+    class Disciplina {
+        +int Id
+        +string Nome
+        +string? Descricao
+        +bool Ativo
+    }
+
+    class AlunoTurma {
+        +DateTime DataMatricula
+        +bool Ativo
+        +int AlunoId
+        +int TurmaId
+        +Aluno Aluno
+        +Turma Turma
+    }
+
+    enum Nivel {
+        Basico = 1
+        Medio = 2
+        Intermediario = 3
+        Avancado = 4
+    }
+
+    Aluno "1" --> "*" AlunoTurma
+    Turma "1" --> "*" AlunoTurma
+    Turma "*" --> "1" Professor
+    Turma "*" --> "1" Disciplina
+
 ## Configuração e Execução
 
 ### 1. Clone o repositório

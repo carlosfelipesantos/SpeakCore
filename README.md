@@ -147,7 +147,7 @@ Para validar o funcionamento completo da API, siga a ordem abaixo, respeitando a
 
 7. **Atualizar um Aluno (PUT)**  
    `PUT /api/Aluno/{id}`  
-   → Altere nome, e-mail ou turmas associadas. Teste a remoção de uma turma.
+   → Altere nome, e-mail ou turmas associadas.
 
 8. **Trancar Matrícula**  
    `PATCH /api/Aluno/{alunoId}/turmas/{turmaId}/status`  
@@ -155,11 +155,11 @@ Para validar o funcionamento completo da API, siga a ordem abaixo, respeitando a
 
 9. **Excluir um Aluno**  
    `DELETE /api/Aluno/{id}`  
-   → Só deve funcionar se o aluno não tiver nenhuma matrícula ativa. Teste primeiro com um aluno que tenha matrícula ativa (erro) e depois com um aluno que só tenha matrículas inativas (sucesso).
+   → Só deve funcionar se o aluno não tiver nenhuma matrícula ativa.
 
 10. **Excluir uma Turma**  
     `DELETE /api/Turma/{id}`  
-    → Só deve funcionar se não houver alunos ativos nela. Teste primeiro sem trancar matrículas (erro) e depois após inativar todos os alunos (sucesso).
+    → Só deve funcionar se não houver alunos ativos nela.
 
 11. **Excluir um Professor**  
     `DELETE /api/Professor/{id}`  
@@ -169,5 +169,4 @@ Para validar o funcionamento completo da API, siga a ordem abaixo, respeitando a
     `DELETE /api/Disciplina/{id}`  
     → Pode ser feito a qualquer momento, pois não há restrição de exclusão.
 
-Essa sequência garante que todas as regras de negócio sejam exercitadas e que as dependências sejam respeitadas durante os testes.
 ```

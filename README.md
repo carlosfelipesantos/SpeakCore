@@ -153,13 +153,16 @@ Como Testar
 
 Usando Swagger
 Execute a API.
-Acesse https://localhost:7111/swagger.
+Acesse https://localhost:7111/swagger. (ou a porta que sua api estiver rodando/swagger).
 Expanda cada controller, clique em “Try it out” e preencha os dados.
 Envie a requisição e veja a resposta.
 
 Usando Postman
-Importe a collection disponível em /postman/SpeakCore.postman_collection.json (se fornecida).
+Importe a collection disponível em /postman/SpeakCore.postman_collection
+
 Execute os endpoints na ordem: crie professor, disciplina, turma, aluno, etc.
+
+Substitua {{base_url}} por https://localhost:7111 (ou a porta que sua API estiver rodando) e {{id}} pelo número de ID.
 
 ## Ordem Sugerida de Testes
 

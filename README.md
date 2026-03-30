@@ -94,6 +94,30 @@ classDiagram
     Turma "*" --> "1" Disciplina
 ```
 
+ Regras de Negócio
+          Aluno:
+            -Deve ser cadastrado com pelo menos uma turma.
+            -CPF deve ser válido (dígitos verificadores) e único.
+            -E-mail deve ter formato válido e ser único.   
+            -Não pode ser excluído se tiver matrícula ativa em qualquer turma.
+        
+          Turma:
+           -Possui capacidade máxima de 5 alunos (considerando apenas matrículas ativas).
+          - Não pode ser excluída se tiver alunos ativos matriculados.
+
+          Professor
+          -E-mail deve ser único.
+          -Não pode ser excluído se possuir turmas vinculadas.
+
+          Disciplina
+          Nome único (não há restrição de exclusão, mas pode ser adicionada futuramente).
+
+          Trancamento de Matrícula
+          Uma matrícula pode ser inativada (Ativo = false) via PATCH.
+
+          Matrículas inativas não contam para o limite de alunos da turma e não bloqueiam a exclusão do aluno ou da turma.
+
+
 ## Configuração e Execução
 
 ### 1. Clone o repositório
@@ -123,43 +147,6 @@ A API estará disponível em https://localhost:7111 (porta pode variar conforme 
 5. Acesse a documentação Swagger
 Navegue até https://localhost:7111/swagger para testar os endpoints interativamente.
 
-Banco de Dados
-As tabelas criadas pelas migrations:
-
-      Alunos (CPF, nome, e-mail, etc.)
-      Professores	
-      Disciplinas	
-      Turmas (número, ano letivo, nível, capacidade)
-      AlunoTurmas	Relacionamento muitos-para-muitos entre aluno e turma, com data da matrícula e status (Ativo –> controla trancamento de matricula).
-
-      Relacionamentos
-      Turma → Professor (muitos-para-um)
-      Turma → Disciplina (muitos-para-um)
-      Aluno ⇄ Turma via AlunoTurmas (muitos-para-muitos)
-
- Regras de Negócio
-          Aluno:
-            -Deve ser cadastrado com pelo menos uma turma.
-            -CPF deve ser válido (dígitos verificadores) e único.
-            -E-mail deve ter formato válido e ser único.   
-            -Não pode ser excluído se tiver matrícula ativa em qualquer turma.
-        
-          Turma:
-           -Possui capacidade máxima de 5 alunos (considerando apenas matrículas ativas).
-          - Não pode ser excluída se tiver alunos ativos matriculados.
-
-          Professor
-          -E-mail deve ser único.
-          -Não pode ser excluído se possuir turmas vinculadas.
-
-          Disciplina
-          Nome único (não há restrição de exclusão, mas pode ser adicionada futuramente).
-
-          Trancamento de Matrícula
-          Uma matrícula pode ser inativada (Ativo = false) via PATCH.
-
-          Matrículas inativas não contam para o limite de alunos da turma e não bloqueiam a exclusão do aluno ou da turma.
-
 
 Como Testar
 
@@ -172,6 +159,8 @@ Envie a requisição e veja a resposta.
 Usando Postman
 Importe a collection disponível em /postman/SpeakCore.postman_collection.json (se fornecida).
 Execute os endpoints na ordem: crie professor, disciplina, turma, aluno, etc.
+
+
 
 
 

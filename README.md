@@ -3,31 +3,6 @@
 API para gerenciamento de uma escola de idiomas, desenvolvida em .NET 8 com arquitetura DDD (Domain-Driven Design), Entity Framework Core Code First e SQL Server.
 Permite controlar alunos, turmas, professores e disciplinas, aplicando regras de negócio como limite de alunos por turma, validação de CPF/e-mail, impedimento de exclusão com dependências e trancamento de matrícula.
 
-📋 Sumário
-Tecnologias
-
-Arquitetura
-
-Pré‑requisitos
-
-Configuração e Execução
-
-Estrutura do Banco de Dados
-
-Endpoints da API
-
-Regras de Negócio
-
-Funcionalidades Detalhadas
-
-Como Testar
-
-Melhorias Adicionais
-
-Contribuição
-
-Licença
-
 🚀 Tecnologias
 .NET 8 – plataforma de desenvolvimento
 

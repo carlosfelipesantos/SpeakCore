@@ -80,36 +80,6 @@ As tabelas criadas pelas migrations:
       Turma → Disciplina (muitos-para-um)
       Aluno ⇄ Turma via AlunoTurmas (muitos-para-muitos)
 
- Endpoints da API
-                Aluno (/api/Aluno)
-                PATCH	/api/Aluno/{alunoId}/turmas/{turmaId}/status	Ativa/desativa uma matrícula específica.
-                GET	/api/Aluno/Todos	Lista todos os alunos.
-                GET	/api/Aluno/{id}	Obtém os dados de um aluno específico.
-                POST	/api/Aluno	Cadastra um novo aluno (obrigatório informar pelo menos uma turma).
-                PUT	/api/Aluno/{id}	Substitui completamente os dados do aluno (inclui turmas).
-                DELETE	/api/Aluno/{id}	Remove o aluno (se não tiver matrículas ativas).
-               
-                Turma (/api/Turma)
-                GET	/api/Turma/Todos	Lista todas as turmas (inclui detalhes da disciplina e professor).
-                GET	/api/Turma/{id}	Obtém uma turma por ID.
-                POST	/api/Turma	Cria uma nova turma.             
-                PUT	/api/Turma/{id}	Atualiza os dados da turma (número, ano letivo, nível, data fim, professor).
-                DELETE	/api/Turma/{id}	Remove a turma (se não tiver alunos ativos).
-
-                  Professor (/api/Professor)
-                  GET	/api/Professor/Todos	Lista todos os professores.
-                  GET	/api/Professor/{id}	Obtém um professor por ID.
-                  POST	/api/Professor	Cadastra um novo professor.
-                  PUT	/api/Professor/{id}	Atualiza os dados do professor (nome, e-mail, especialidade, ativo).
-                  DELETE	/api/Professor/{id}	Remove o professor (se não tiver turmas vinculadas).
-
-                  Disciplina (/api/Disciplina)
-                  GET	/api/Disciplina	Lista todas as disciplinas.
-                  GET	/api/Disciplina/{id}	Obtém uma disciplina por ID.
-                  POST	/api/Disciplina	Cadastra uma nova disciplina.
-                  PUT	/api/Disciplina/{id}	Atualiza os dados da disciplina (nome, descrição, ativo).
-                  DELETE	/api/Disciplina/{id}	Remove a disciplina (não há restrição).
-
  Regras de Negócio
           Aluno:
             -Deve ser cadastrado com pelo menos uma turma.
@@ -147,34 +117,57 @@ Importe a collection disponível em /postman/SpeakCore.postman_collection.json (
 Execute os endpoints na ordem: crie professor, disciplina, turma, aluno, etc.
 
 
-Exemplos de Requisições
-Cadastrar Turma
-json
-POST /api/Turma
-{
-  "numero": 101,
-  "anoLetivo": 2026,
-  "capacidadeMax": 5,
-  "nivel": 1,
-  "dataInicio": "2026-03-01",
-  "dataFim": "2026-12-15",
-  "disciplinaId": 1,
-  "professorId": 1
-}
-Cadastrar Aluno com Turma
-json
-POST /api/Aluno
-{
-  "cpf": "12345678909",
-  "nome": "João Souza",
-  "email": "joao@email.com",
-  "dataNascimento": "2000-01-01",
-  "turmasIds": [1]
-}
-Trancar Matrícula
-http
-PATCH /api/Aluno/1/turmas/1/status
-Content-Type: application/json
-{
-false
-}
+
+## Ordem Sugerida de Testes
+
+Para validar o funcionamento completo da API, siga a ordem abaixo, respeitando as dependências entre os recursos:
+
+1. **Cadastrar Professor**  
+   `POST /api/Professor`  
+   → Cria um professor que será vinculado a uma turma.
+
+2. **Cadastrar Disciplina**  
+   `POST /api/Disciplina`  
+   → Cria uma disciplina que será vinculada a uma turma.
+
+3. **Cadastrar Turma**  
+   `POST /api/Turma`  
+   → Utiliza os IDs do professor e da disciplina criados anteriormente.
+
+4. **Cadastrar Aluno(s)**  
+   `POST /api/Aluno`  
+   → Cria alunos já associados à turma criada. Repita para atingir o limite de 5 alunos.
+
+5. **Testar Limite da Turma**  
+   Ao tentar matricular um sexto aluno, a API deve retornar erro informando que a capacidade máxima foi atingida.
+
+6. **Listar Registros**  
+   `GET /api/Aluno`, `/api/Turma`, `/api/Professor`, `/api/Disciplina`  
+   → Confirma que os dados foram persistidos corretamente.
+
+7. **Atualizar um Aluno (PUT)**  
+   `PUT /api/Aluno/{id}`  
+   → Altere nome, e-mail ou turmas associadas. Teste a remoção de uma turma.
+
+8. **Trancar Matrícula**  
+   `PATCH /api/Aluno/{alunoId}/turmas/{turmaId}/status`  
+   → Desative uma matrícula (`false`). Verifique que o aluno não é mais contado para o limite da turma.
+
+9. **Excluir um Aluno**  
+   `DELETE /api/Aluno/{id}`  
+   → Só deve funcionar se o aluno não tiver nenhuma matrícula ativa. Teste primeiro com um aluno que tenha matrícula ativa (erro) e depois com um aluno que só tenha matrículas inativas (sucesso).
+
+10. **Excluir uma Turma**  
+    `DELETE /api/Turma/{id}`  
+    → Só deve funcionar se não houver alunos ativos nela. Teste primeiro sem trancar matrículas (erro) e depois após inativar todos os alunos (sucesso).
+
+11. **Excluir um Professor**  
+    `DELETE /api/Professor/{id}`  
+    → Só deve funcionar se ele não estiver vinculado a nenhuma turma. Após excluir a turma, o professor poderá ser removido.
+
+12. **Excluir uma Disciplina**  
+    `DELETE /api/Disciplina/{id}`  
+    → Pode ser feito a qualquer momento, pois não há restrição de exclusão.
+
+Essa sequência garante que todas as regras de negócio sejam exercitadas e que as dependências sejam respeitadas durante os testes.
+```

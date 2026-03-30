@@ -14,6 +14,28 @@ namespace SpeakCore.API.Controllers
             _alunoService = alunoService;
         }
 
+        [HttpPatch("{alunoId}/turmas/{turmaId}/status")]
+        public async Task<IActionResult> AtualizarStatusMatricula(int alunoId, int turmaId, [FromBody] bool ativo)
+        {
+            try
+            {
+                await _alunoService.AtualizarStatusMatriculaAsync(alunoId, turmaId, ativo);
+                return NoContent(); // 204 - sucesso sem conteúdo
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -28,7 +50,7 @@ namespace SpeakCore.API.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpGet("Todos")]
         public async Task<IActionResult> GetAll()
         {
             var alunos = await _alunoService.ObterTodosAsync();

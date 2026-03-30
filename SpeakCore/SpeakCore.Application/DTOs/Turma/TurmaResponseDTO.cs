@@ -1,4 +1,6 @@
-﻿using SpeakCore.Domain.Enums;
+﻿using SpeakCore.Application.DTOs.Disciplina;
+using SpeakCore.Application.DTOs.Professor;
+using SpeakCore.Domain.Enums;
 
 namespace SpeakCore.Application.DTOs.Turma
 {
@@ -11,9 +13,12 @@ namespace SpeakCore.Application.DTOs.Turma
         public Nivel Nivel { get; set; }
         public DateTime DataInicio { get; set; }
         public DateTime? DataFim { get; set; }
+        public DisciplinaResponseDTO Disciplina { get; set; }
+        public ProfessorResponseDTO Professor { get; set; }
 
-        public int DisciplinaId { get; set; }
-        public int ProfessorId { get; set; }
+
+
+    
       
 
     }

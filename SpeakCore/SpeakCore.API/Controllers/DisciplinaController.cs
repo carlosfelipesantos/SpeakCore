@@ -29,7 +29,7 @@ namespace SpeakCore.API.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpGet("Todos")]
         public async Task<IActionResult> GetAll()
         {
             var disciplinas = await _disciplinaService.ObterTodasAsync();

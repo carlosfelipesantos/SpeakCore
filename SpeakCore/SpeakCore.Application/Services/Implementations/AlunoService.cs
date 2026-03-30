@@ -16,6 +16,22 @@ namespace SpeakCore.Application.Services.Implementations
             _alunoRepository = alunoRepository;
             _turmaRepository = turmaRepository;
         }
+
+        public async Task AtualizarStatusMatriculaAsync(int alunoId, int turmaId, bool ativo)
+        {
+            var aluno = await _alunoRepository.ObterPorIdAsync(alunoId);
+            if (aluno == null)
+                throw new KeyNotFoundException("Aluno não encontrado.");
+
+            var matricula = aluno.AlunoTurmas?.FirstOrDefault(at => at.TurmaId == turmaId);
+            if (matricula == null)
+                throw new KeyNotFoundException("Matrícula não encontrada para esta turma.");
+
+            matricula.Ativo = ativo;
+            await _alunoRepository.AtualizarAsync(aluno);
+           
+        }
+
         public async Task<AlunoResponseDTO> AdicionarAsync(AlunoCreateDTO dto)
         {
             
@@ -134,7 +150,8 @@ namespace SpeakCore.Application.Services.Implementations
                 AlunoTurmas = dto.TurmasIds.Select(turmaId => new AlunoTurma
                 {
                     TurmaId = turmaId,
-                    DataMatricula = DateTime.Now
+                    DataMatricula = DateTime.Now,
+                      Ativo = true
                 }).ToList()
             };
         }
@@ -148,7 +165,12 @@ namespace SpeakCore.Application.Services.Implementations
                 Email = aluno.Email,
                 Ativo = aluno.Ativo,
                 DataCadastro = aluno.DataCadastro,
-                Turmas = aluno.AlunoTurmas.Select(at => at.TurmaId).ToList()
+                Matriculas = aluno.AlunoTurmas?.Select(at => new MatriculaDTO
+                {
+                    TurmaId = at.TurmaId,
+                    Ativo = at.Ativo,
+                    DataMatricula = at.DataMatricula
+                }).ToList() ?? new List<MatriculaDTO>()
             };
         }
 
@@ -197,7 +219,8 @@ namespace SpeakCore.Application.Services.Implementations
                         aluno.AlunoTurmas.Add(new AlunoTurma
                         {
                             TurmaId = turmaId,
-                            DataMatricula = DateTime.Now
+                            DataMatricula = DateTime.Now,
+                            Ativo = true
                         });
                     }
                 }

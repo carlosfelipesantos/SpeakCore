@@ -4,6 +4,7 @@ namespace SpeakCore.Application.Services.Interfaces
 {
     public interface IAlunoService
     {
+        Task AtualizarStatusMatriculaAsync(int alunoId, int turmaId, bool ativo);
         Task<AlunoResponseDTO> AdicionarAsync(AlunoCreateDTO dto);
         Task<AlunoResponseDTO?> ObterPorIdAsync(int id);
         Task<List<AlunoResponseDTO>> ObterTodosAsync();

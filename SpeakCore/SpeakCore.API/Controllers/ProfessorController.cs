@@ -27,8 +27,7 @@ namespace SpeakCore.API.Controllers
                 return NotFound(ex.Message);
             }
         }
-
-        [HttpGet]
+        [HttpGet("Todos")]
         public async Task<IActionResult> GetAll()
         {
             var professores = await _professorService.ObterTodosAsync();

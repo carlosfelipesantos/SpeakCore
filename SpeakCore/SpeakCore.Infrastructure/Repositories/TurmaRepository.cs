@@ -22,17 +22,17 @@ namespace SpeakCore.Infrastructure.Repositories
 
         public async Task<Turma?> ObterPorIdAsync(int id)
         {
-            return await _context.Turmas.FirstOrDefaultAsync(i => i.Id == id);
+            return await _context.Turmas.Include(p => p.Professor).Include(t => t.Disciplina).FirstOrDefaultAsync(i => i.Id == id);
         }
 
         public async Task<int> ObterQuantidadeAlunosAsync(int turmaId)
         {
-            return await _context.AlunoTurmas.CountAsync(at => at.TurmaId == turmaId);
+            return await _context.AlunoTurmas.CountAsync(at => at.TurmaId == turmaId && at.Ativo);
         }
 
         public async Task<List<Turma>> ObterTodosAsync()
         {
-            return await _context.Turmas.OrderBy(t => t.AnoLetivo).ToListAsync();
+            return await _context.Turmas.Include(p => p.Professor).Include(t => t.Disciplina).OrderBy(t => t.AnoLetivo).ToListAsync();
         }
 
         public async Task AtualizarAsync(Turma turma)
@@ -51,7 +51,7 @@ namespace SpeakCore.Infrastructure.Repositories
 
         public async Task<bool> PossuiAlunosAsync(int turmaId)
         {
-            return await _context.AlunoTurmas.AnyAsync(a => a.TurmaId == turmaId);
+            return await _context.AlunoTurmas.AnyAsync(a => a.TurmaId == turmaId && a.Ativo);
         }
 
        

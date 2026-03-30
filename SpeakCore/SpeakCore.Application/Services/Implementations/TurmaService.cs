@@ -1,4 +1,6 @@
-﻿using SpeakCore.Application.DTOs.Turma;
+﻿using SpeakCore.Application.DTOs.Disciplina;
+using SpeakCore.Application.DTOs.Professor;
+using SpeakCore.Application.DTOs.Turma;
 using SpeakCore.Application.Services.Interfaces;
 using SpeakCore.Domain.Entities;
 using SpeakCore.Domain.Interfaces;
@@ -113,8 +115,21 @@ namespace SpeakCore.Application.Services.Implementations
                 Nivel = turma.Nivel,
                 DataInicio = turma.DataInicio,
                 DataFim = turma.DataFim,
-                DisciplinaId = turma.DisciplinaId,
-                ProfessorId = turma.ProfessorId
+                 Disciplina = turma.Disciplina == null ? null : new DisciplinaResponseDTO
+                {
+                    Id = turma.Disciplina.Id,
+                    Nome = turma.Disciplina.Nome,
+                    Descricao = turma.Disciplina.Descricao,
+                    Ativo = turma.Disciplina.Ativo
+                },
+                Professor = turma.Professor == null ? null : new ProfessorResponseDTO
+                {
+                    Id = turma.Professor.Id,
+                    Nome = turma.Professor.Nome,
+                    Email = turma.Professor.Email,
+                    Especialidade = turma.Professor.Especialidade,
+                    Ativo = turma.Professor.Ativo
+                }
             };
         }
 

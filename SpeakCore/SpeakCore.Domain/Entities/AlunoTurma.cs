@@ -3,6 +3,7 @@
     public class AlunoTurma
     {
         public DateTime DataMatricula { get; set; }
+        public bool Ativo { get; set; }
         public int AlunoId { get; set; }
         public Aluno Aluno { get; set; }
 

@@ -28,7 +28,7 @@ namespace SpeakCore.API.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpGet("Todos")]
         public async Task<IActionResult> GetAll()
         {
             var turmas = await _turmaService.ObterTodosAsync();

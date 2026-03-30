@@ -9,7 +9,7 @@ namespace SpeakCore.Application.DTOs.Aluno
         public bool Ativo { get; set; }
         public DateTime DataCadastro { get; set; }
 
-        public List<int> Turmas { get; set; }
+        public List<MatriculaDTO> Matriculas { get; set; }
 
     }
 }

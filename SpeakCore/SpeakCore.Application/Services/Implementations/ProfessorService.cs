@@ -86,9 +86,9 @@ namespace SpeakCore.Application.Services.Implementations
             return new Professor {
             Nome = dto.Nome,
             Email = dto.Email,
-            Especialidade = dto.Especialidade
+            Especialidade = dto.Especialidade,
+            Ativo = true
 
-          
             };
         }
 

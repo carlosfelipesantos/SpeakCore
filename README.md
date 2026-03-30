@@ -35,7 +35,8 @@ text
 - SQL Server (Express, Developer ou LocalDB)
 - Git
 
----```mermaid
+---
+```mermaid
 classDiagram
     class Aluno {
         +int Id

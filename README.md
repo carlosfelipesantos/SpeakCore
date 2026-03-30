@@ -178,7 +178,7 @@ Para validar o funcionamento completo da API, siga a ordem abaixo, respeitando a
 
 3. Cadastrar Turma  
    `POST /api/Turma`  
-   → Utiliza os IDs do professor e da disciplina criados anteriormente.
+   → Utiliza os IDs de professor e da disciplina criados anteriormente.
 
 4. Cadastrar Alunos  
    `POST /api/Aluno`  

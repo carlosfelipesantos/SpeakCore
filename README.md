@@ -165,50 +165,50 @@ Execute os endpoints na ordem: crie professor, disciplina, turma, aluno, etc.
 
 Para validar o funcionamento completo da API, siga a ordem abaixo, respeitando as dependências entre os recursos:
 
-1. **Cadastrar Professor**  
+1. Cadastrar Professor  
    `POST /api/Professor`  
    → Cria um professor que será vinculado a uma turma.
 
-2. **Cadastrar Disciplina**  
+2. Cadastrar Disciplina  
    `POST /api/Disciplina`  
    → Cria uma disciplina que será vinculada a uma turma.
 
-3. **Cadastrar Turma**  
+3. Cadastrar Turma  
    `POST /api/Turma`  
    → Utiliza os IDs do professor e da disciplina criados anteriormente.
 
-4. **Cadastrar Aluno(s)**  
+4. Cadastrar Alunos  
    `POST /api/Aluno`  
    → Cria alunos já associados à turma criada. Repita para atingir o limite de 5 alunos.
 
-5. **Testar Limite da Turma**  
+5. Testar Limite da Turma 
    Ao tentar matricular um sexto aluno, a API deve retornar erro informando que a capacidade máxima foi atingida.
 
 6. Listar Registros 
    `GET /api/Aluno`, `/api/Turma`, `/api/Professor`, `/api/Disciplina`  
    → Confirma que os dados foram persistidos corretamente.
 
-7. **Atualizar um Aluno (PUT)**  
+7. Atualizar um Aluno (PUT) 
    `PUT /api/Aluno/{id}`  
    → Altere nome, e-mail ou turmas associadas.
 
-8. **Trancar Matrícula**  
+8. Trancar Matrícula 
    `PATCH /api/Aluno/{alunoId}/turmas/{turmaId}/status`  
    → Desative uma matrícula (`false`). Verifique que o aluno não é mais contado para o limite da turma.
 
-9. **Excluir um Aluno**  
+9. Excluir um Aluno 
    `DELETE /api/Aluno/{id}`  
    → Só deve funcionar se o aluno não tiver nenhuma matrícula ativa.
 
-10. **Excluir uma Turma**  
+10. Excluir uma Turma
     `DELETE /api/Turma/{id}`  
     → Só deve funcionar se não houver alunos ativos nela.
 
-11. **Excluir um Professor**  
+11. Excluir um Professor
     `DELETE /api/Professor/{id}`  
     → Só deve funcionar se ele não estiver vinculado a nenhuma turma. Após excluir a turma, o professor poderá ser removido.
 
-12. **Excluir uma Disciplina**  
+12. Excluir uma Disciplina
     `DELETE /api/Disciplina/{id}`  
     → Pode ser feito a qualquer momento, pois não há restrição de exclusão.
 

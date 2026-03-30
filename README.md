@@ -94,7 +94,8 @@ classDiagram
     Turma "*" --> "1" Disciplina
 ```
 
- Regras de Negócio
+Regras de Negócio
+
           Aluno:
             -Deve ser cadastrado com pelo menos uma turma.
             -CPF deve ser válido (dígitos verificadores) e único.

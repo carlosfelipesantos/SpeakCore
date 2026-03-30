@@ -69,65 +69,57 @@ Navegue até https://localhost:7111/swagger para testar os endpoints interativam
 🗄 Estrutura do Banco de Dados
 As tabelas criadas pelas migrations:
 
-Tabela	Descrição
-Alunos	Dados pessoais do aluno (CPF, nome, e-mail, etc.)
-Professores	Dados do professor
-Disciplinas	Disciplinas oferecidas
-Turmas	Turmas (número, ano letivo, nível, capacidade)
-AlunoTurmas	Relacionamento muitos-para-muitos entre aluno e turma, com data da matrícula e status (Ativo – controla trancamento).
-Relacionamentos
-Turma → Professor (muitos-para-um)
+      Alunos (CPF, nome, e-mail, etc.)
+      Professores	
+      Disciplinas	
+      Turmas (número, ano letivo, nível, capacidade)
+      AlunoTurmas	Relacionamento muitos-para-muitos entre aluno e turma, com data da matrícula e status (Ativo –> controla trancamento de matricula).
 
-Turma → Disciplina (muitos-para-um)
-
-Aluno ⇄ Turma via AlunoTurmas (muitos-para-muitos)
+      Relacionamentos
+      Turma → Professor (muitos-para-um)
+      Turma → Disciplina (muitos-para-um)
+      Aluno ⇄ Turma via AlunoTurmas (muitos-para-muitos)
 
 📡 Endpoints da API
-Aluno (/api/Aluno)
-Método	Rota	Descrição
-POST	/api/Aluno	Cadastra um novo aluno (obrigatório informar pelo menos uma turma).
-GET	/api/Aluno	Lista todos os alunos.
-GET	/api/Aluno/{id}	Obtém os dados de um aluno específico.
-PUT	/api/Aluno/{id}	Substitui completamente os dados do aluno (inclui turmas).
-DELETE	/api/Aluno/{id}	Remove o aluno (se não tiver matrículas ativas).
-PATCH	/api/Aluno/{alunoId}/turmas/{turmaId}/status	Ativa/desativa uma matrícula específica.
-Turma (/api/Turma)
-Método	Rota	Descrição
-POST	/api/Turma	Cria uma nova turma.
-GET	/api/Turma	Lista todas as turmas (inclui detalhes da disciplina e professor).
-GET	/api/Turma/{id}	Obtém uma turma por ID.
-PUT	/api/Turma/{id}	Atualiza os dados da turma (número, ano letivo, nível, data fim, professor).
-DELETE	/api/Turma/{id}	Remove a turma (se não tiver alunos ativos).
-Professor (/api/Professor)
-Método	Rota	Descrição
-POST	/api/Professor	Cadastra um novo professor.
-GET	/api/Professor	Lista todos os professores.
-GET	/api/Professor/{id}	Obtém um professor por ID.
-PUT	/api/Professor/{id}	Atualiza os dados do professor (nome, e-mail, especialidade, ativo).
-DELETE	/api/Professor/{id}	Remove o professor (se não tiver turmas vinculadas).
-Disciplina (/api/Disciplina)
-Método	Rota	Descrição
-POST	/api/Disciplina	Cadastra uma nova disciplina.
-GET	/api/Disciplina	Lista todas as disciplinas.
-GET	/api/Disciplina/{id}	Obtém uma disciplina por ID.
-PUT	/api/Disciplina/{id}	Atualiza os dados da disciplina (nome, descrição, ativo).
-DELETE	/api/Disciplina/{id}	Remove a disciplina (não há restrição).
+                Aluno (/api/Aluno)
+                PATCH	/api/Aluno/{alunoId}/turmas/{turmaId}/status	Ativa/desativa uma matrícula específica.
+                GET	/api/Aluno/Todos	Lista todos os alunos.
+                GET	/api/Aluno/{id}	Obtém os dados de um aluno específico.
+                POST	/api/Aluno	Cadastra um novo aluno (obrigatório informar pelo menos uma turma).
+                PUT	/api/Aluno/{id}	Substitui completamente os dados do aluno (inclui turmas).
+                DELETE	/api/Aluno/{id}	Remove o aluno (se não tiver matrículas ativas).
+               
+                Turma (/api/Turma)
+                GET	/api/Turma/Todos	Lista todas as turmas (inclui detalhes da disciplina e professor).
+                GET	/api/Turma/{id}	Obtém uma turma por ID.
+                POST	/api/Turma	Cria uma nova turma.             
+                PUT	/api/Turma/{id}	Atualiza os dados da turma (número, ano letivo, nível, data fim, professor).
+                DELETE	/api/Turma/{id}	Remove a turma (se não tiver alunos ativos).
+
+                  Professor (/api/Professor)
+                  GET	/api/Professor/Todos	Lista todos os professores.
+                  GET	/api/Professor/{id}	Obtém um professor por ID.
+                  POST	/api/Professor	Cadastra um novo professor.
+                  PUT	/api/Professor/{id}	Atualiza os dados do professor (nome, e-mail, especialidade, ativo).
+                  DELETE	/api/Professor/{id}	Remove o professor (se não tiver turmas vinculadas).
+
+                  Disciplina (/api/Disciplina)
+                  GET	/api/Disciplina	Lista todas as disciplinas.
+                  GET	/api/Disciplina/{id}	Obtém uma disciplina por ID.
+                  POST	/api/Disciplina	Cadastra uma nova disciplina.
+                  PUT	/api/Disciplina/{id}	Atualiza os dados da disciplina (nome, descrição, ativo).
+                  DELETE	/api/Disciplina/{id}	Remove a disciplina (não há restrição).
+
 📜 Regras de Negócio
-Aluno
-Deve ser cadastrado com pelo menos uma turma.
-
-CPF deve ser válido (dígitos verificadores) e único.
-
-E-mail deve ter formato válido e ser único.
-
-Não pode ser matriculado mais de uma vez na mesma turma (chave composta + validação).
-
-Não pode ser excluído se tiver matrícula ativa em qualquer turma.
-
-Turma
-Capacidade máxima de 5 alunos (considerando apenas matrículas ativas).
-
-Não pode ser excluída se tiver alunos ativos matriculados.
+          Aluno:
+            -Deve ser cadastrado com pelo menos uma turma;
+            -CPF deve ser válido (dígitos verificadores) e único;
+            -E-mail deve ter formato válido e ser único;     
+            -Não pode ser excluído se tiver matrícula ativa em qualquer turma.
+        
+          Turma:
+           -Possui capacidade máxima de 5 alunos (considerando apenas matrículas ativas).
+          - Não pode ser excluída se tiver alunos ativos matriculados.
 
 Professor
 E-mail deve ser único.

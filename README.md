@@ -1,12 +1,12 @@
 
-# 🧠 SpeakCore API
+# SpeakCore API
 
 API para gerenciamento de uma escola de idiomas, desenvolvida em **.NET 8** com arquitetura **DDD (Domain-Driven Design)**, **Entity Framework Core Code First** e **SQL Server**.  
 Permite controlar alunos, turmas, professores e disciplinas, aplicando regras de negócio como limite de alunos por turma, validação de CPF/e-mail, impedimento de exclusão com dependências e trancamento de matrícula.
 
 ---
 
-## 🚀 Tecnologias
+## Tecnologias
 
 - **.NET 8** – plataforma de desenvolvimento
 - **Entity Framework Core 8** – ORM para acesso a dados
@@ -16,7 +16,7 @@ Permite controlar alunos, turmas, professores e disciplinas, aplicando regras de
 
 ---
 
-## 🏛 Arquitetura
+## Arquitetura
 
 O projeto segue os princípios do **DDD**, com separação clara das responsabilidades:
 SpeakCore/
@@ -29,7 +29,7 @@ text
 
 ---
 
-## ⚙️ Pré‑requisitos
+## Pré‑requisitos
 
 - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
 - SQL Server (Express, Developer ou LocalDB)
@@ -37,7 +37,7 @@ text
 
 ---
 
-## 🔧 Configuração e Execução
+## Configuração e Execução
 
 ### 1. Clone o repositório
 
@@ -66,7 +66,7 @@ A API estará disponível em https://localhost:7111 (porta pode variar conforme 
 5. Acesse a documentação Swagger
 Navegue até https://localhost:7111/swagger para testar os endpoints interativamente.
 
-🗄 Estrutura do Banco de Dados
+Banco de Dados
 As tabelas criadas pelas migrations:
 
       Alunos (CPF, nome, e-mail, etc.)
@@ -80,7 +80,7 @@ As tabelas criadas pelas migrations:
       Turma → Disciplina (muitos-para-um)
       Aluno ⇄ Turma via AlunoTurmas (muitos-para-muitos)
 
-📡 Endpoints da API
+ Endpoints da API
                 Aluno (/api/Aluno)
                 PATCH	/api/Aluno/{alunoId}/turmas/{turmaId}/status	Ativa/desativa uma matrícula específica.
                 GET	/api/Aluno/Todos	Lista todos os alunos.
@@ -110,7 +110,7 @@ As tabelas criadas pelas migrations:
                   PUT	/api/Disciplina/{id}	Atualiza os dados da disciplina (nome, descrição, ativo).
                   DELETE	/api/Disciplina/{id}	Remove a disciplina (não há restrição).
 
-📜 Regras de Negócio
+ Regras de Negócio
           Aluno:
             -Deve ser cadastrado com pelo menos uma turma.
             -CPF deve ser válido (dígitos verificadores) e único.
@@ -148,21 +148,6 @@ Execute os endpoints na ordem: crie professor, disciplina, turma, aluno, etc.
 
 
 Exemplos de Requisições
-Cadastrar Professor
-json
-POST /api/Professor
-{
-  "nome": "Maria Silva",
-  "email": "maria@email.com",
-  "especialidade": "Inglês"
-}
-Cadastrar Disciplina
-json
-POST /api/Disciplina
-{
-  "nome": "Inglês Básico",
-  "descricao": "Curso para iniciantes"
-}
 Cadastrar Turma
 json
 POST /api/Turma
@@ -190,5 +175,6 @@ Trancar Matrícula
 http
 PATCH /api/Aluno/1/turmas/1/status
 Content-Type: application/json
-
+{
 false
+}

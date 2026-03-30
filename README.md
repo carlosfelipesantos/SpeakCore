@@ -114,7 +114,7 @@ Regras de Negócio
           Nome único (não há restrição de exclusão, mas pode ser adicionada futuramente).
 
           Trancamento de Matrícula
-          Uma matrícula pode ser inativada (Ativo = false) via PATCH.
+          Uma matrícula pode ser trancada (Ativo = false) via PATCH ou reativada (Ativo = true).
 
           Matrículas inativas não contam para o limite de alunos da turma e não bloqueiam a exclusão do aluno ou da turma.
 

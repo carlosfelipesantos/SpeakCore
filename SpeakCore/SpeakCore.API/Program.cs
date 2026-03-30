@@ -86,7 +86,7 @@ public class DateTimeSchemaFilter : ISchemaFilter
         if (context.Type == typeof(DateTime) || context.Type == typeof(DateTime?))
         {
             schema.Example = new Microsoft.OpenApi.Any.OpenApiString("30-03-2026");
-            schema.Format = "date"; // opcional, indica que é uma data
+            schema.Format = "date"; 
         }
     }
 }

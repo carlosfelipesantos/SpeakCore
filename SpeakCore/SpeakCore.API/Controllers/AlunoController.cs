@@ -20,7 +20,7 @@ namespace SpeakCore.API.Controllers
             try
             {
                 await _alunoService.AtualizarStatusMatriculaAsync(alunoId, turmaId, ativo);
-                return NoContent(); // 204 - sucesso sem conteúdo
+                return NoContent(); 
             }
             catch (KeyNotFoundException ex)
             {

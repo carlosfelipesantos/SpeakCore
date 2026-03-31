@@ -25,12 +25,14 @@ namespace SpeakCore.Infrastructure.Data
             modelBuilder.Entity<AlunoTurma>()
                 .HasOne(at => at.Aluno)
                 .WithMany(a => a.AlunoTurmas)
-                .HasForeignKey(at => at.AlunoId);
+                .HasForeignKey(at => at.AlunoId)
+             .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<AlunoTurma>()
                 .HasOne(at => at.Turma)
                 .WithMany(a => a.AlunoTurmas)
-                .HasForeignKey(at => at.TurmaId);
+                .HasForeignKey(at => at.TurmaId)
+                 .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

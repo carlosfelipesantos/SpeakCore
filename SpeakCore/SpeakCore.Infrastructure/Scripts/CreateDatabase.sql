@@ -9,6 +9,7 @@ END;
 GO
 
 BEGIN TRANSACTION;
+
 CREATE TABLE [Alunos] (
     [Id] int NOT NULL IDENTITY,
     [CPF] nvarchar(max) NOT NULL,
@@ -57,8 +58,8 @@ CREATE TABLE [AlunoTurmas] (
     [TurmaId] int NOT NULL,
     [DataMatricula] datetime2 NOT NULL,
     CONSTRAINT [PK_AlunoTurmas] PRIMARY KEY ([AlunoId], [TurmaId]),
-    CONSTRAINT [FK_AlunoTurmas_Alunos_AlunoId] FOREIGN KEY ([AlunoId]) REFERENCES [Alunos] ([Id]) ON DELETE CASCADE,
-    CONSTRAINT [FK_AlunoTurmas_Turmas_TurmaId] FOREIGN KEY ([TurmaId]) REFERENCES [Turmas] ([Id]) ON DELETE CASCADE
+    CONSTRAINT [FK_AlunoTurmas_Alunos_AlunoId] FOREIGN KEY ([AlunoId]) REFERENCES [Alunos] ([Id]) ON DELETE NO ACTION,
+    CONSTRAINT [FK_AlunoTurmas_Turmas_TurmaId] FOREIGN KEY ([TurmaId]) REFERENCES [Turmas] ([Id]) ON DELETE NO ACTION
 );
 
 CREATE INDEX [IX_AlunoTurmas_TurmaId] ON [AlunoTurmas] ([TurmaId]);
@@ -77,4 +78,3 @@ VALUES (N'20260330172316_AddAlunoAtivoTurma', N'9.0.10');
 
 COMMIT;
 GO
-

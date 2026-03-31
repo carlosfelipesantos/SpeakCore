@@ -23,8 +23,7 @@ namespace SpeakCore.Application.Services.Implementations
 
         public async Task<TurmaResponseDTO> AdicionarAsync(TurmaCreateDTO dto)
         {
-            if (dto.CapacidadeMax <= 0)
-                throw new ArgumentException("Capacidade deve ser maior que zero.");
+           
 
             var disciplina = await _disciplinaRepository.ObterPorIdAsync(dto.DisciplinaId);
             if (disciplina == null)
@@ -95,7 +94,7 @@ namespace SpeakCore.Application.Services.Implementations
             {
                 Numero = dto.Numero,
                 AnoLetivo = dto.AnoLetivo,
-                CapacidadeMax = dto.CapacidadeMax,
+                CapacidadeMax = 5,
                 Nivel = dto.Nivel,
                 DataInicio = dto.DataInicio,
                 DataFim = dto.DataFim,

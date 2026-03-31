@@ -75,6 +75,9 @@ ALTER TABLE [AlunoTurmas] ADD [Ativo] bit NOT NULL DEFAULT CAST(0 AS bit);
 INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
 VALUES (N'20260330172316_AddAlunoAtivoTurma', N'9.0.10');
 
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20260331164556_ChangeCascadeToRestrict', N'9.0.10');
+
 COMMIT;
 GO
 

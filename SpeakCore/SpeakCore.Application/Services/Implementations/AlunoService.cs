@@ -41,6 +41,9 @@ namespace SpeakCore.Application.Services.Implementations
             if (await _alunoRepository.CpfExisteAsync(dto.CPF))
                 throw new ArgumentException("CPF já cadastrado.");
 
+            if (dto.DataNascimento > DateTime.Now)
+                throw new ArgumentException("A data de nascimento não pode ser futura.");
+
             if (dto.TurmasIds.Distinct().Count() != dto.TurmasIds.Count)
                 throw new ArgumentException("Aluno não pode ser matriculado na mesma turma mais de uma vez.");
 

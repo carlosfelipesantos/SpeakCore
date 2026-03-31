@@ -91,26 +91,26 @@ classDiagram
 Regras de Negócio
 
           Aluno:
-            -Deve ser cadastrado com pelo menos uma turma.
-            -CPF deve ser válido com dígitos verificadores e único.
-            -E-mail deve ter formato válido e ser único.   
-            -Não pode ser excluído se tiver matrícula ativa em qualquer turma.
+          - Deve ser cadastrado com pelo menos uma turma.
+          - CPF deve ser válido com dígitos verificadores e único.
+          - E-mail deve ter formato válido e ser único.   
+          - Não pode ser excluído se tiver matrícula ativa em qualquer turma.
         
           Turma:
-           -Possui capacidade máxima de 5 alunos (considerando apenas matrículas ativas).
+          - Possui capacidade máxima de 5 alunos (considerando apenas matrículas ativas).
           - Não pode ser excluída se tiver alunos ativos matriculados.
 
           Professor
-          -E-mail deve ser único.
-          -Não pode ser excluído se possuir turmas vinculadas.
+          - E-mail deve ser único.
+          - Não pode ser excluído se possuir turmas vinculadas.
 
           Disciplina
-          Nome único e sem restrição de exclusão.
+          - Nome único.
+          - Não pode ser excluída se possuir turmas vinculadas.
 
           Trancamento de Matrícula
-          Uma matrícula pode ser trancada (Ativo = false) via PATCH ou reativada (Ativo = true).
-
-          Matrículas inativas não contam para o limite de alunos da turma e não bloqueiam a exclusão do aluno ou da turma.
+          - Uma matrícula pode ser trancada (Ativo = false) via PATCH ou reativada (Ativo = true).
+          - Matrículas inativas não contam para o limite de alunos da turma e não bloqueiam a exclusão do aluno ou da turma.
 
 
 ## Configuração e Execução

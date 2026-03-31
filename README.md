@@ -48,7 +48,7 @@ classDiagram
         +int Numero
         +int AnoLetivo
         +int CapacidadeMax
-        +Enum Nivel
+        +Enum Nivel (Basico, Medio, Intermediario, Avancado)
         +DateTime DataInicio
         +DateTime? DataFim
         +int DisciplinaId
@@ -172,7 +172,7 @@ Para validar o funcionamento completo da API, siga a ordem abaixo, respeitando a
 
 3. Cadastrar Turma  
    `POST /api/Turma`  
-   → Utiliza os IDs de professor e da disciplina criados anteriormente.
+   → Utilize para nível da turma: "Basico", "Medio", "Intermediario" ou "Avancado". Para os IDs de professor e da disciplina criados anteriormente.
 
 4. Cadastrar Alunos  
    `POST /api/Aluno`  

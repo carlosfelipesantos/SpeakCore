@@ -26,7 +26,7 @@ namespace SpeakCore.Infrastructure.Data
                 .HasOne(at => at.Aluno)
                 .WithMany(a => a.AlunoTurmas)
                 .HasForeignKey(at => at.AlunoId)
-             .OnDelete(DeleteBehavior.Restrict);
+             .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<AlunoTurma>()
                 .HasOne(at => at.Turma)

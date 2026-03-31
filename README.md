@@ -182,7 +182,8 @@ Para validar o funcionamento completo da API, siga a ordem abaixo, respeitando a
    Ao tentar matricular um sexto aluno, a API deve retornar erro informando que a capacidade máxima foi atingida.
 
 6. Listar Registros 
-   `GET /api/Aluno`, `/api/Turma`, `/api/Professor`, `/api/Disciplina`  
+   `GET /api/Aluno/Todos`, `/api/Turma/Todos`, `/api/Professor/Todos`, `/api/Disciplina/Todos`
+    `GET /api/Aluno/{id}`, `/api/Turma/{id}`, `/api/Professor/{id}`, `/api/Disciplina/{id}`    
    → Confirma que os dados foram persistidos corretamente.
 
 7. Atualizar um Aluno (PUT) 

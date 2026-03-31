@@ -190,7 +190,7 @@ Para validar o funcionamento completo da API, siga a ordem abaixo, respeitando a
 
 8. Trancar Matrícula 
    `PATCH /api/Aluno/{alunoId}/turmas/{turmaId}/status`  
-   → Desative uma matrícula (`false`). Verifique que o aluno não é mais contado para o limite da turma.
+   → Desative uma matrícula (`false`). 
 
 9. Excluir um Aluno 
    `DELETE /api/Aluno/{id}`  
@@ -206,6 +206,6 @@ Para validar o funcionamento completo da API, siga a ordem abaixo, respeitando a
 
 12. Excluir uma Disciplina
     `DELETE /api/Disciplina/{id}`  
-    → Pode ser feito a qualquer momento, pois não há restrição de exclusão.
+    → Pode ser feito desde que não esteja vinculada a uma turma.
 
 ```

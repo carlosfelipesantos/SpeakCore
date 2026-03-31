@@ -15,7 +15,18 @@
           "name": "Listar todos",
           "request": {
             "method": "GET",
-            "header": []
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Aluno/Todos",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Aluno",
+                "Todos"
+              ]
+            }
           },
           "response": []
         },
@@ -23,7 +34,18 @@
           "name": "Buscar por ID",
           "request": {
             "method": "GET",
-            "header": []
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Aluno/{{id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Aluno",
+                "{{id}}"
+              ]
+            }
           },
           "response": []
         },
@@ -48,12 +70,10 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7111/api/Aluno",
-              "protocol": "https",
+              "raw": "{{base_url}}/api/Aluno",
               "host": [
-                "localhost"
+                "{{base_url}}"
               ],
-              "port": "7111",
               "path": [
                 "api",
                 "Aluno"
@@ -75,19 +95,17 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"cpf\": \"65407829002\",\r\n  \"nome\": \"Jose\",\r\n  \"email\": \"zezinho@gmail.com\",\r\n  \"dataNascimento\": \"30-03-2000\",\r\n  \"turmasIds\": [1]\r\n}"
+              "raw": "{\r\n  \"cpf\": \"12345678909\",\r\n  \"nome\": \"João Silva\",\r\n  \"email\": \"joao@email.com\",\r\n  \"dataNascimento\": \"30-03-2000\",\r\n  \"turmasIds\": [1]\r\n}"
             },
             "url": {
-              "raw": "https://localhost:7111/api/Aluno/1",
-              "protocol": "https",
+              "raw": "{{base_url}}/api/Aluno/{{id}}",
               "host": [
-                "localhost"
+                "{{base_url}}"
               ],
-              "port": "7111",
               "path": [
                 "api",
                 "Aluno",
-                "1"
+                "{{id}}"
               ]
             }
           },
@@ -109,16 +127,14 @@
               "raw": "{\r\n  \"cpf\": \"65407829002\",\r\n  \"nome\": \"Jose\",\r\n  \"email\": \"zezinho@gmail.com\",\r\n  \"dataNascimento\": \"30-03-2000\",\r\n  \"turmasIds\": [1]\r\n}"
             },
             "url": {
-              "raw": "https://localhost:7111/api/Aluno/1",
-              "protocol": "https",
+              "raw": "{{base_url}}/api/Aluno/{{id}}",
               "host": [
-                "localhost"
+                "{{base_url}}"
               ],
-              "port": "7111",
               "path": [
                 "api",
                 "Aluno",
-                "1"
+                "{{id}}"
               ]
             }
           },
@@ -140,18 +156,16 @@
               "raw": "\r\n  false\r\n"
             },
             "url": {
-              "raw": "https://localhost:7111/api/Aluno/2/turmas/1/status",
-              "protocol": "https",
+              "raw": "{{base_url}}/api/Aluno/{{alunoId}}/turmas/{{turmaId}}/status",
               "host": [
-                "localhost"
+                "{{base_url}}"
               ],
-              "port": "7111",
               "path": [
                 "api",
                 "Aluno",
-                "2",
+                "{{alunoId}}",
                 "turmas",
-                "1",
+                "{{turmaId}}",
                 "status"
               ]
             }
@@ -167,7 +181,18 @@
           "name": "Listar todas",
           "request": {
             "method": "GET",
-            "header": []
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Turma/Todos",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Turma",
+                "Todos"
+              ]
+            }
           },
           "response": []
         },
@@ -175,7 +200,18 @@
           "name": "Buscar por ID",
           "request": {
             "method": "GET",
-            "header": []
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Turma/{{id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Turma",
+                "{{id}}"
+              ]
+            }
           },
           "response": []
         },
@@ -186,7 +222,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"numero\": 109,\r\n  \"anoLetivo\": 2026,\r\n  \"capacidadeMax\": 5,\r\n  \"nivel\": 3,\r\n  \"dataInicio\": \"01-03-2026\",\r\n  \"dataFim\": \"15-12-2028\",\r\n  \"disciplinaId\": 1,\r\n  \"professorId\": 1\r\n}",
+              "raw": "{\r\n  \"numero\": 101,\r\n  \"anoLetivo\": 2026,\r\n  \"capacidadeMax\": 5,\r\n  \"nivel\": 1,\r\n  \"dataInicio\": \"01-03-2026\",\r\n  \"dataFim\": \"15-12-2026\",\r\n  \"disciplinaId\": 1,\r\n  \"professorId\": 1\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -194,12 +230,10 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7111/api/Turma",
-              "protocol": "https",
+              "raw": "{{base_url}}/api/Turma",
               "host": [
-                "localhost"
+                "{{base_url}}"
               ],
-              "port": "7111",
               "path": [
                 "api",
                 "Turma"
@@ -215,7 +249,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"numero\": 101,\r\n  \"anoLetivo\": 2026,\r\n  \"capacidadeMax\": 5,\r\n  \"nivel\": 1,\r\n  \"dataInicio\": \"01-03-2026\",\r\n  \"dataFim\": \"15-12-2036\",\r\n  \"disciplinaId\": 1,\r\n  \"professorId\": 1\r\n}",
+              "raw": "{\r\n  \"numero\": 101,\r\n  \"anoLetivo\": 2026,\r\n  \"capacidadeMax\": 5,\r\n  \"nivel\": 1,\r\n  \"dataInicio\": \"01-03-2026\",\r\n  \"dataFim\": \"15-12-2026\",\r\n  \"disciplinaId\": 1,\r\n  \"professorId\": 1\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -223,16 +257,14 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7111/api/Turma/2",
-              "protocol": "https",
+              "raw": "{{base_url}}/api/Turma/{{id}}",
               "host": [
-                "localhost"
+                "{{base_url}}"
               ],
-              "port": "7111",
               "path": [
                 "api",
                 "Turma",
-                "2"
+                "{{id}}"
               ]
             }
           },
@@ -248,16 +280,14 @@
               "raw": "{\r\n  \"numero\": 101,\r\n  \"anoLetivo\": 2026,\r\n  \"capacidadeMax\": 5,\r\n  \"nivel\": 1,\r\n  \"dataInicio\": \"01-03-2026\",\r\n  \"dataFim\": \"15-12-2036\",\r\n  \"disciplinaId\": 1,\r\n  \"professorId\": 1\r\n}"
             },
             "url": {
-              "raw": "https://localhost:7111/api/Turma/1",
-              "protocol": "https",
+              "raw": "{{base_url}}/api/Turma/{{id}}",
               "host": [
-                "localhost"
+                "{{base_url}}"
               ],
-              "port": "7111",
               "path": [
                 "api",
                 "Turma",
-                "1"
+                "{{id}}"
               ]
             }
           },
@@ -272,15 +302,44 @@
           "name": "Listar todos",
           "request": {
             "method": "GET",
-            "header": []
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Professor/Todos",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Professor",
+                "Todos"
+              ]
+            }
           },
           "response": []
         },
         {
           "name": "Buscar por ID",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "GET",
-            "header": []
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"numero\": 101,\r\n  \"anoLetivo\": 2026,\r\n  \"capacidadeMax\": 5,\r\n  \"nivel\": 1,\r\n  \"dataInicio\": \"01-03-2026\",\r\n  \"dataFim\": \"15-12-2036\",\r\n  \"disciplinaId\": 1,\r\n  \"professorId\": 1\r\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/Professor/{{id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Professor",
+                "{{id}}"
+              ]
+            }
           },
           "response": []
         },
@@ -291,7 +350,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"nome\": \"Maria Ishizaki\",\r\n  \"email\": \"maria@email.com\",\r\n  \"especialidade\": \"Japones\",\r\n  \"ativo\": true\r\n}",
+              "raw": "{\r\n  \"nome\": \"Maria Souza\",\r\n  \"email\": \"maria@email.com\",\r\n  \"especialidade\": \"Inglês\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -299,12 +358,10 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7111/api/Professor",
-              "protocol": "https",
+              "raw": "{{base_url}}/api/Professor",
               "host": [
-                "localhost"
+                "{{base_url}}"
               ],
-              "port": "7111",
               "path": [
                 "api",
                 "Professor"
@@ -320,7 +377,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"nome\": \"Maria Souza\",\r\n  \"email\": \"mariaishizaka@email.com\",\r\n  \"especialidade\": \"Inglês\",\r\n  \"ativo\": true\r\n}",
+              "raw": "{\r\n  \"nome\": \"Maria Souza\",\r\n  \"email\": \"maria@email.com\",\r\n  \"especialidade\": \"Inglês\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -328,16 +385,14 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7111/api/Professor/4",
-              "protocol": "https",
+              "raw": "{{base_url}}/api/Professor/{{id}}",
               "host": [
-                "localhost"
+                "{{base_url}}"
               ],
-              "port": "7111",
               "path": [
                 "api",
                 "Professor",
-                "4"
+                "{{id}}"
               ]
             }
           },
@@ -353,16 +408,14 @@
               "raw": "{\r\n  \"nome\": \"Maria Souza\",\r\n  \"email\": \"mariaishizaka@email.com\",\r\n  \"especialidade\": \"Inglês\",\r\n  \"ativo\": true\r\n}"
             },
             "url": {
-              "raw": "https://localhost:7111/api/Professor/4",
-              "protocol": "https",
+              "raw": "{{base_url}}/api/Professor/{{id}}",
               "host": [
-                "localhost"
+                "{{base_url}}"
               ],
-              "port": "7111",
               "path": [
                 "api",
                 "Professor",
-                "4"
+                "{{id}}"
               ]
             }
           },
@@ -377,7 +430,18 @@
           "name": "Listar todas",
           "request": {
             "method": "GET",
-            "header": []
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Disciplina/Todos",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Disciplina",
+                "Todos"
+              ]
+            }
           },
           "response": []
         },
@@ -385,7 +449,18 @@
           "name": "Buscar por ID",
           "request": {
             "method": "GET",
-            "header": []
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/Disciplina/{{id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "Disciplina",
+                "{{id}}"
+              ]
+            }
           },
           "response": []
         },
@@ -396,7 +471,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"nome\": \"Inglês Avancado\",\r\n  \"descricao\": \"Curso superior\",\r\n  \"ativo\": true\r\n}",
+              "raw": "{\r\n  \"nome\": \"Inglês Básico\",\r\n  \"descricao\": \"Curso introdutório\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -404,12 +479,10 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7111/api/Disciplina",
-              "protocol": "https",
+              "raw": "{{base_url}}/api/Disciplina",
               "host": [
-                "localhost"
+                "{{base_url}}"
               ],
-              "port": "7111",
               "path": [
                 "api",
                 "Disciplina"
@@ -425,7 +498,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"nome\": \"Inglês Básico\",\r\n  \"descricao\": \"Curso introdutório\",\r\n  \"ativo\": true\r\n}",
+              "raw": "{\r\n  \"nome\": \"Inglês Básico\",\r\n  \"descricao\": \"Curso introdutório\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -433,16 +506,14 @@
               }
             },
             "url": {
-              "raw": "https://localhost:7111/api/Disciplina/1",
-              "protocol": "https",
+              "raw": "{{base_url}}/api/Disciplina/{{id}}",
               "host": [
-                "localhost"
+                "{{base_url}}"
               ],
-              "port": "7111",
               "path": [
                 "api",
                 "Disciplina",
-                "1"
+                "{{id}}"
               ]
             }
           },
@@ -458,16 +529,14 @@
               "raw": "{\r\n  \"nome\": \"Inglês Básico\",\r\n  \"descricao\": \"Curso introdutório\",\r\n  \"ativo\": true\r\n}"
             },
             "url": {
-              "raw": "https://localhost:7111/api/Disciplina/4",
-              "protocol": "https",
+              "raw": "{{base_url}}/api/Disciplina/{{id}}",
               "host": [
-                "localhost"
+                "{{base_url}}"
               ],
-              "port": "7111",
               "path": [
                 "api",
                 "Disciplina",
-                "4"
+                "{{id}}"
               ]
             }
           },

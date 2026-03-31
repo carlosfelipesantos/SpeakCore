@@ -63,14 +63,12 @@ classDiagram
         +string Nome
         +string Email
         +string Especialidade
-        +bool Ativo
     }
 
     class Disciplina {
         +int Id
         +string Nome
         +string? Descricao
-        +bool Ativo
     }
 
     class AlunoTurma {

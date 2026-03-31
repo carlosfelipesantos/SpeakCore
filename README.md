@@ -97,7 +97,7 @@ Regras de Negócio
 
           Aluno:
             -Deve ser cadastrado com pelo menos uma turma.
-            -CPF deve ser válido (dígitos verificadores) e único.
+            -CPF deve ser válido com dígitos verificadores e único.
             -E-mail deve ter formato válido e ser único.   
             -Não pode ser excluído se tiver matrícula ativa em qualquer turma.
         
@@ -110,7 +110,7 @@ Regras de Negócio
           -Não pode ser excluído se possuir turmas vinculadas.
 
           Disciplina
-          Nome único (não há restrição de exclusão, mas pode ser adicionada futuramente).
+          Nome único e sem restrição de exclusão.
 
           Trancamento de Matrícula
           Uma matrícula pode ser trancada (Ativo = false) via PATCH ou reativada (Ativo = true).

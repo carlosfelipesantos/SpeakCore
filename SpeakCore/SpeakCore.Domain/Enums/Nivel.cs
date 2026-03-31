@@ -3,8 +3,7 @@
     public enum Nivel
     {
         Basico = 1,
-        Medio = 2,
-        Intermediario = 3,
-        Avancado = 4
+        Intermediario = 2,
+        Avancado = 3
     }
 }

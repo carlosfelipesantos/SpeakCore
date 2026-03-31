@@ -33,6 +33,12 @@ namespace SpeakCore.Infrastructure.Data
                 .WithMany(a => a.AlunoTurmas)
                 .HasForeignKey(at => at.TurmaId)
                  .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Turma>()
+                .HasOne(t => t.Disciplina)
+                .WithMany() 
+                .HasForeignKey(t => t.DisciplinaId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

@@ -20,6 +20,11 @@ namespace SpeakCore.Infrastructure.Repositories
             await _context.SaveChangesAsync();
         }
 
+        public async Task<bool> ExisteTurmaPorDisciplinaAsync(int disciplinaId)
+        {
+            return await _context.Turmas.AnyAsync(t => t.DisciplinaId == disciplinaId);
+        }
+
         public async Task<Turma?> ObterPorIdAsync(int id)
         {
             return await _context.Turmas.Include(p => p.Professor).Include(t => t.Disciplina).FirstOrDefaultAsync(i => i.Id == id);

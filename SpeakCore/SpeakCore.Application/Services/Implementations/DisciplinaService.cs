@@ -2,16 +2,19 @@
 using SpeakCore.Application.Services.Interfaces;
 using SpeakCore.Domain.Entities;
 using SpeakCore.Domain.Interfaces;
+using SpeakCore.Infrastructure.Repositories;
 
 namespace SpeakCore.Application.Services.Implementations
 {
     public class DisciplinaService : IDisciplinaService
     {
         private readonly IDisciplinaRepository _disciplinaRepository;
+        private readonly ITurmaRepository _turmaRepository;
 
-        public DisciplinaService(IDisciplinaRepository disciplinaRepository)
+        public DisciplinaService(IDisciplinaRepository disciplinaRepository, ITurmaRepository turmaRepository)
         {
             _disciplinaRepository = disciplinaRepository;
+            _turmaRepository = turmaRepository;
         }
         
         public async Task<DisciplinaResponseDTO> AdicionarAsync(DisciplinaCreateDTO dto)
@@ -67,6 +70,9 @@ namespace SpeakCore.Application.Services.Implementations
 
             if (disciplina == null)
                 throw new KeyNotFoundException("Disciplina nao encontrada");
+
+            if (await _turmaRepository.ExisteTurmaPorDisciplinaAsync(id))
+                throw new InvalidOperationException("Não é possível excluir a disciplina, pois existem turmas vinculadas a ela.");
 
 
             await _disciplinaRepository.RemoverAsync(disciplina);

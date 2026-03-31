@@ -12,6 +12,8 @@ namespace SpeakCore.Domain.Interfaces
         Task AtualizarAsync (Turma turma);
         Task RemoverAsync (Turma turma);
 
+        Task<bool> ExisteTurmaPorDisciplinaAsync(int disciplinaId);
+
         Task<int> ObterQuantidadeAlunosAsync(int turmaId);
         Task<bool> PossuiAlunosAsync(int turmaId);
 

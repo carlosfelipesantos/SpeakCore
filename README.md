@@ -53,7 +53,7 @@ classDiagram
         +int Numero
         +int AnoLetivo
         +int CapacidadeMax
-        +string Nivel
+        +Enum Nivel
         +DateTime DataInicio
         +DateTime? DataFim
         +int DisciplinaId

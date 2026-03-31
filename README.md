@@ -19,12 +19,7 @@ Permite controlar alunos, turmas, professores e disciplinas, aplicando regras de
 ## Arquitetura
 
 O projeto segue os princípios do **DDD**, com separação clara das responsabilidades:
-SpeakCore/
-  -SpeakCore.API # (Controllers, Swagger)
-  -SpeakCore.Application # DTOs e Serviços (lógica de aplicação)
-  -SpeakCore.Domain # Entidades, Enums, Interfaces de Repositório
-  -SpeakCore.Infrastructure # Contexto, Repositórios, Migrations
-
+SpeakCore: API(Controllers, Swagger), Application (DTOs e Services), Domain (Entidades, Enums, Interfaces de Repository), Infrastructure (Context, Repository, Migrations)
 
 ---
 

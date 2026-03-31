@@ -172,7 +172,7 @@ Para validar o funcionamento completo da API, siga a ordem abaixo, respeitando a
 
 3. Cadastrar Turma  
    `POST /api/Turma`  
-   → Utilize para nível da turma: "Basico", "Intermediario" ou "Avancado". Para os IDs de professor e da disciplina criados anteriormente.
+   → Utilize para nível da turma: "Basico", "Intermediario" ou "Avancado". Para os IDs de professor e da disciplina, utilize os criados anteriormente.
 
 4. Cadastrar Alunos  
    `POST /api/Aluno`  

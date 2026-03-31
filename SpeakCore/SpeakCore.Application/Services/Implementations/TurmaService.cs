@@ -118,16 +118,14 @@ namespace SpeakCore.Application.Services.Implementations
                 {
                     Id = turma.Disciplina.Id,
                     Nome = turma.Disciplina.Nome,
-                    Descricao = turma.Disciplina.Descricao,
-                    Ativo = turma.Disciplina.Ativo
+                    Descricao = turma.Disciplina.Descricao                   
                 },
                 Professor = turma.Professor == null ? null : new ProfessorResponseDTO
                 {
                     Id = turma.Professor.Id,
                     Nome = turma.Professor.Nome,
                     Email = turma.Professor.Email,
-                    Especialidade = turma.Professor.Especialidade,
-                    Ativo = turma.Professor.Ativo
+                    Especialidade = turma.Professor.Especialidade                 
                 }
             };
         }

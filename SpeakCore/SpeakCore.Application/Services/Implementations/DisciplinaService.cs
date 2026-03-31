@@ -86,8 +86,7 @@ namespace SpeakCore.Application.Services.Implementations
             {
                 Nome = dto.Nome,
                 Descricao = dto.Descricao,
-                Ativo = true
-            };
+                };
         }
 
         private DisciplinaResponseDTO MapParaResponse(Disciplina disciplina)
@@ -96,8 +95,7 @@ namespace SpeakCore.Application.Services.Implementations
             {
                 Id = disciplina.Id,
                 Nome = disciplina.Nome,
-                Descricao = disciplina.Descricao,
-                Ativo = disciplina.Ativo
+                Descricao = disciplina.Descricao           
             };
 
 
@@ -109,7 +107,7 @@ namespace SpeakCore.Application.Services.Implementations
              
                 disciplina.Nome = dto.Nome;
                 disciplina.Descricao = dto.Descricao;
-                disciplina.Ativo = dto.Ativo;
+            
             
         }
     }

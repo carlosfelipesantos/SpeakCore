@@ -87,9 +87,7 @@ namespace SpeakCore.Application.Services.Implementations
             Nome = dto.Nome,
             Email = dto.Email,
             Especialidade = dto.Especialidade,
-            Ativo = true
-
-            };
+             };
         }
 
         private ProfessorResponseDTO MapParaResponse(Professor professor) 
@@ -99,8 +97,7 @@ namespace SpeakCore.Application.Services.Implementations
                 Id = professor.Id,
                 Nome = professor.Nome,
                 Email = professor.Email,
-                Especialidade = professor.Especialidade,
-                Ativo = professor.Ativo,
+                Especialidade = professor.Especialidade            
             
             };
         }
@@ -110,7 +107,7 @@ namespace SpeakCore.Application.Services.Implementations
             professor.Nome = dto.Nome;
             professor.Email = dto.Email;
             professor.Especialidade = dto.Especialidade;
-            professor.Ativo = dto.Ativo;
+        
         }
 
       
